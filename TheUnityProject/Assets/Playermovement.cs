@@ -21,6 +21,7 @@ public class Playermovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal") * speed;
         movement.z = Input.GetAxisRaw("Vertical") * speed;
         rb.velocity = movement;
+        
 
     }
 }
