@@ -10,7 +10,7 @@ public class BulletSpawner : MonoBehaviour
     public float CooldownTime = 0.3f;
 
     private float remainingCooldown;
-    public float BulletSpeed = 5f;
+    public float BulletSpeed = 20f;
     // Start is called before the first frame update
     void Start()
     {
