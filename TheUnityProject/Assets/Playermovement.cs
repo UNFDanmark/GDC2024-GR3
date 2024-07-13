@@ -8,13 +8,14 @@ public class Playermovement : MonoBehaviour
 {
     public float speed = 10f;
     public float JumpHeight = 10f;
-    public float HorizontalRotation = 2f;
+    public float HorizontalRotation = 200000f;
 
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class Playermovement : MonoBehaviour
 
         
         //velocity
-        movement = movement.normalized * speed;
+        movement = movement.normalized * speed; // * Time.deltaTime;
         movement.y = rb.velocity.y;
         
 
@@ -46,7 +47,7 @@ public class Playermovement : MonoBehaviour
         rb.velocity = movement;
         
         float MouseHorizontal = Input.GetAxisRaw("Mouse X");
-        transform.Rotate(0, MouseHorizontal * HorizontalRotation, 0);
+        transform.Rotate(0, MouseHorizontal * HorizontalRotation * Time.deltaTime, 0);
             
 
 
