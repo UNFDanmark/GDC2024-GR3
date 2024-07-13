@@ -15,6 +15,11 @@ public class VerticalCam : MonoBehaviour
     void Update()
     {
         float MouseVertical = Input.GetAxisRaw("Mouse Y");
-        transform.Rotate(MouseVertical*VerticalRotation* -1 * Time.deltaTime,0, 0);
+
+        float RotationAmount = MouseVertical * VerticalRotation * -1 * Time.deltaTime;
+
+        float RotationAmountClamped = Mathf.Clamp(RotationAmount, -90, 90);
+        
+        transform.Rotate(RotationAmountClamped,0, 0);
     }
 }
