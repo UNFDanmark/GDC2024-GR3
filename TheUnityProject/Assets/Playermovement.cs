@@ -8,6 +8,7 @@ public class Playermovement : MonoBehaviour
 {
     public float speed = 10f;
     public float JumpHeight = 10f;
+    public float HorizontalRotation = 2f;
 
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -19,14 +20,29 @@ public class Playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 movement = rb.velocity;
-            movement.x = Input.GetAxisRaw("Horizontal") * speed;
-            movement.z = Input.GetAxisRaw("Vertical") * speed;
-                rb.velocity = movement;
+        Vector3 movement = new Vector3();
+        /*= rb.velocity;
+        movement.x = transform.forward.x * Input.GetAxisRaw("Horizontal") * speed;
+        movement.z = transform.forward.z * Input.GetAxisRaw("Vertical") * speed;
+        */
         
-        if(Input.GetButtonDown("Jump"));
+        // direction
+        movement += transform.forward * Input.GetAxisRaw("Vertical");
+        movement += transform.right * Input.GetAxisRaw("Horizontal");
+
+        
+        //velocity
+        movement = movement.normalized * speed;
+        movement.y = rb.velocity.y;
+        
+        if(Input.GetKeyDown(KeyCode.Space))
             movement.y = JumpHeight;
-            //rb.velocity = movement;
+
+        rb.velocity = movement;
+        
+        float MouseHorizontal = Input.GetAxisRaw("Mouse X");
+        transform.Rotate(0, MouseHorizontal * HorizontalRotation, 0);
+            
 
 
     }
