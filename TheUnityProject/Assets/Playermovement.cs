@@ -35,8 +35,13 @@ public class Playermovement : MonoBehaviour
         movement = movement.normalized * speed;
         movement.y = rb.velocity.y;
         
-        if(Input.GetKeyDown(KeyCode.Space))
-            movement.y = JumpHeight;
+
+        if (transform.position.y <= 1)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+                movement.y = JumpHeight;
+        }
+        
 
         rb.velocity = movement;
         
