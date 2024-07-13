@@ -26,7 +26,7 @@ public class BulletSpawner : MonoBehaviour
             GameObject bullet = Instantiate(Bulletprefab, transform.position, Quaternion.identity);
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
             bulletRB.velocity = transform.forward * BulletSpeed;
-            remainingCooldown=CooldownTime
+            remainingCooldown = CooldownTime;
         } 
     }
 }
