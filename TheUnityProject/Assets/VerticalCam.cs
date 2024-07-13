@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VerticalCam : MonoBehaviour
 {
-    public float VerticalRotation = 2f;
+    public float VerticalRotation = 200000f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,6 @@ public class VerticalCam : MonoBehaviour
     void Update()
     {
         float MouseVertical = Input.GetAxisRaw("Mouse Y");
-        transform.Rotate(MouseVertical*VerticalRotation*-1,0, 0);
+        transform.Rotate(MouseVertical*VerticalRotation* -1 * Time.deltaTime,0, 0);
     }
 }
