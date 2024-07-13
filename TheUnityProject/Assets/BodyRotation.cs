@@ -15,7 +15,7 @@ public class BodyRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float MouseHorizontal = Input.GetAxis("Mouse X");
+        float MouseHorizontal = Input.GetAxisRaw("Mouse X");
         transform.Rotate(0, MouseHorizontal * HorizontalRotation, 0);
         
     }
