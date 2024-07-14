@@ -8,7 +8,7 @@ public class Playermovement : MonoBehaviour
 {
     public float speed = 10f;
     public float JumpHeight = 10f;
-    public float HorizontalRotation = 200000f;
+    //public float HorizontalRotation = 200000f;
 
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -46,8 +46,7 @@ public class Playermovement : MonoBehaviour
 
         rb.velocity = movement;
         
-        float MouseHorizontal = Input.GetAxisRaw("Mouse X");
-        transform.Rotate(0, MouseHorizontal * HorizontalRotation * Time.deltaTime, 0);
+        
             
 
 
