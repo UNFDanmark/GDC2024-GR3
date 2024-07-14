@@ -30,11 +30,13 @@ public class EnemyScripts : MonoBehaviour
         remainingCooldown = remainingCooldown - Time.deltaTime;
         agent.SetDestination(player.transform.position);
         
-        if (Vector3.Distance(transform.position,GameObject.FindWithTag("Player").transform.position) <= 10 && remainingCooldown<=0)
+        if (Vector3.Distance(transform.position,player.transform.position) <= 10 && remainingCooldown<=0)
         {
+            Vector3 directiontoplayer = player.transform.position - transform.position;
+            directiontoplayer = directiontoplayer.normalized;
             GameObject bullet = Instantiate(Bulletprefab, transform.position, Quaternion.identity);
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
-            bulletRB.velocity = transform.forward * EnemyBulletSpeed;
+            bulletRB.velocity = directiontoplayer * EnemyBulletSpeed;
             remainingCooldown = EnemyCooldownTime;
         }
     }
