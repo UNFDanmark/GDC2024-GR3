@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    public GameObject Bulletprefab;
+    public GameObject WaterBulletPrefab;
+    public GameObject FireBulletPrefab;
+    public GameObject GrassBulletPrefab;
+    private int Element = 0;
     
     public float CooldownTime = 0.3f;
 
     private float remainingCooldown;
-    public float BulletSpeed = 20f;
+    public float WaterBulletSpeed = 20f;
+    public float FireBulletSpeed = 20f;
+    public float GrassBulletSpeed = 20f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +28,9 @@ public class BulletSpawner : MonoBehaviour
         remainingCooldown = remainingCooldown - Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Mouse0) && remainingCooldown <= 0)
         {
-            GameObject bullet = Instantiate(Bulletprefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(WaterBulletPrefab, transform.position, Quaternion.identity);
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
-            bulletRB.velocity = transform.forward * BulletSpeed;
+            bulletRB.velocity = transform.forward * WaterBulletSpeed;
             remainingCooldown = CooldownTime;
         } 
     }

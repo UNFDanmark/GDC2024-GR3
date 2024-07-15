@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 1168067205247874119}
   - component: {fileID: 7143438898004437096}
   - component: {fileID: 7916649187097504788}
-  - component: {fileID: -8013807870395535686}
-  - component: {fileID: -2066125000278622474}
+  - component: {fileID: -1427808282578914760}
   m_Layer: 7
-  m_Name: Grass bullet
+  m_Name: Fire bullet
   m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 19bd5ee21f7db2647b57ca3378acffc5, type: 2}
+  - {fileID: 2100000, guid: 156566627856df949b42907f7c949c38, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -135,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &-8013807870395535686
+--- !u!114 &-1427808282578914760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,16 +147,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletDestroyCD: 2
-  remainingBulletCD: 0
---- !u!114 &-2066125000278622474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4747031693992327984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66e69fd67c131f849b317771ffbf7041, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
