@@ -81,4 +81,11 @@ public class GrassEnemy : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Melee"))
+            EnemyHealth--;
+    }
 }
+

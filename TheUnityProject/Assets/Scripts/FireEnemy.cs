@@ -81,4 +81,9 @@ public class FireEnemy : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Melee"))
+            EnemyHealth--;
+    }
 }

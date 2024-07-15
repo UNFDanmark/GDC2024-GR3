@@ -9,7 +9,7 @@ public class BulletSpawner : MonoBehaviour
     public GameObject WaterBulletPrefab;
     public GameObject FireBulletPrefab;
     public GameObject GrassBulletPrefab;
-    private int Element = 0;
+    private int Element;
     public int MaxAmmo = 10;
     private int CurrentAmmo;
     public float MeleeUptime = 1;
@@ -26,6 +26,7 @@ public class BulletSpawner : MonoBehaviour
     void Start()
     {
         remainingCooldown = CooldownTime;
+        RemainingMeleeCooldown = MeleeUptime;
     }
 
     // Update is called once per frame
@@ -62,12 +63,29 @@ public class BulletSpawner : MonoBehaviour
                 CurrentAmmo -= 1;
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                MeleeHitbox.SetActive(true);
-            }
             
         }
+
+        if (RemainingMeleeCooldown >= 0)
+        {
+            RemainingMeleeCooldown = RemainingMeleeCooldown - Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (RemainingMeleeCooldown > 0)
+            {
+                print("hej");
+                MeleeHitbox.SetActive(true);
+                
+            }
+        }
+        if (RemainingMeleeCooldown <= 0)
+        {
+            MeleeHitbox.SetActive(false);
+            RemainingMeleeCooldown = MeleeUptime;
+        }
+       
 
         if (Input.GetKeyDown(KeyCode.E))
         {

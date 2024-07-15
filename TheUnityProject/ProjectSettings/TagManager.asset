@@ -15,6 +15,7 @@ TagManager:
   - WaterBullet
   - FireBullet
   - GrassBullet
+  - Melee
   layers:
   - Default
   - TransparentFX
