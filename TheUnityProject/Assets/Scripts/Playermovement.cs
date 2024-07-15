@@ -59,13 +59,14 @@ public class Playermovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("EnemyBullets"))
         {
+            CurrentHealth -= 1;
             if (CurrentHealth <= 0)
             {
                 Time.timeScale = 0;
                 GameOverScreen.SetActive(true);
             }
             Destroy(other.gameObject);
-            CurrentHealth -= 1;
+            
             LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
             
         }

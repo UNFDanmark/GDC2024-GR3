@@ -32,6 +32,27 @@ public class BulletSpawner : MonoBehaviour
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
             bulletRB.velocity = transform.forward * WaterBulletSpeed;
             remainingCooldown = CooldownTime;
-        } 
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out RaycastHit Pickup, 5))
+            {
+                if (Pickup.transform.CompareTag("WaterPickup"))
+                {
+                    Destroy(Pickup.transform.gameObject);
+                }
+
+                if (Pickup.transform.CompareTag("FirePickup"))
+                {
+                    Destroy(Pickup.transform.gameObject);
+                }
+
+                if (Pickup.transform.CompareTag("GrassPickup"))
+                {
+                    Destroy(Pickup.transform.gameObject);
+                }
+            }
+        }
     }
 }
