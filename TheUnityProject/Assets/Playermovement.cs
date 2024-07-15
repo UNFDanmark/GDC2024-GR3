@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,7 +10,10 @@ public class Playermovement : MonoBehaviour
 {
     public float speed = 10f;
     public float JumpHeight = 10f;
-    //public float HorizontalRotation = 200000f;
+    public int PlayerHealth = 10;
+    private int CurrentHealth;
+    public GameObject GameOverScreen;
+    public TextMeshProUGUI LivTekst;
 
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -16,16 +21,14 @@ public class Playermovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
+        CurrentHealth = PlayerHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 movement = new Vector3();
-        /*= rb.velocity;
-        movement.x = transform.forward.x * Input.GetAxisRaw("Horizontal") * speed;
-        movement.z = transform.forward.z * Input.GetAxisRaw("Vertical") * speed;
-        */
+        
         
         // direction
         movement += transform.forward * Input.GetAxisRaw("Vertical");
@@ -33,7 +36,7 @@ public class Playermovement : MonoBehaviour
 
         
         //velocity
-        movement = movement.normalized * speed; // * Time.deltaTime;
+        movement = movement.normalized * speed; 
         movement.y = rb.velocity.y;
         
 
@@ -50,5 +53,22 @@ public class Playermovement : MonoBehaviour
             
 
 
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("EnemyBullets"))
+        {
+            if (CurrentHealth <= 0)
+            {
+                Time.timeScale = 0;
+                GameOverScreen.SetActive(true);
+            }
+            Destroy(other.gameObject);
+            CurrentHealth -= 1;
+            LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
+            
+        }
+        
     }
 }

@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
         {
             float xSpawn = Random.Range(xMin, xMax);
             float zSpawn = Random.Range(zMin, zMax);
-            Vector3 SpawnPoint = new Vector3(xSpawn, transform.position.y, zSpawn);
+            Vector3 SpawnPoint = new Vector3(xSpawn, 0, zSpawn) + transform.position;
             Instantiate(enemyPrefab, SpawnPoint, Quaternion.identity);
             leftovercooldown = EnemyCooldown;
         }

@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletDestroyer : MonoBehaviour
+public class WaterBullet : MonoBehaviour
 {
-    public float BulletDestroyCD = 2f;
+    public float WaterBulletDestroyCD = 2f;
 
     private float remainingBulletCD;
     // Start is called before the first frame update
     void Start()
     {
-        remainingBulletCD = BulletDestroyCD;
+        remainingBulletCD = WaterBulletDestroyCD;
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class BulletDestroyer : MonoBehaviour
         if (remainingBulletCD <= 0)
         {
             Destroy(gameObject);
-            remainingBulletCD = BulletDestroyCD;
+            remainingBulletCD = WaterBulletDestroyCD;
         }
     }
 }

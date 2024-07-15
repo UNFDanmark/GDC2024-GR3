@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 7143438898004437096}
   - component: {fileID: 7916649187097504788}
   - component: {fileID: -8013807870395535686}
+  - component: {fileID: 4278035180589355392}
   m_Layer: 7
-  m_Name: Bullet
+  m_Name: Water bullet
   m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d66df83c2f7e66343a3514ee343ec7da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,3 +149,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletDestroyCD: 2
   remainingBulletCD: 0
+--- !u!114 &4278035180589355392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4747031693992327984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2260f20fb530f4c93e40de0d26e59a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
