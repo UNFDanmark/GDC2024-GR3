@@ -8,6 +8,10 @@ TagManager:
   - Bullets
   - PlayerRange
   - EnemyBullets
+  - WaterPickup
+  - GrassPickup
+  - FirePickup
+  - HealthPickup
   layers:
   - Default
   - TransparentFX

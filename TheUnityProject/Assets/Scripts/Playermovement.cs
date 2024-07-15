@@ -14,6 +14,7 @@ public class Playermovement : MonoBehaviour
     private int CurrentHealth;
     public GameObject GameOverScreen;
     public TextMeshProUGUI LivTekst;
+    public int Healing = 1;
 
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -49,11 +50,22 @@ public class Playermovement : MonoBehaviour
 
         rb.velocity = movement;
         
-        
+        LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
             
 
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("HealthPickup"))
+        {
+            Destroy(other.gameObject);
+            if (CurrentHealth < PlayerHealth)
+            {
+                CurrentHealth += Healing ;
+            }
+        }
+    }   
 
     private void OnCollisionEnter(Collision other)
     {
@@ -67,9 +79,11 @@ public class Playermovement : MonoBehaviour
             }
             Destroy(other.gameObject);
             
-            LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
+            
             
         }
         
     }
+
+    
 }
