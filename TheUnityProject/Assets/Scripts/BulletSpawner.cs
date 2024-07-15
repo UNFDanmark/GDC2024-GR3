@@ -12,9 +12,10 @@ public class BulletSpawner : MonoBehaviour
     private int Element = 0;
     public int MaxAmmo = 10;
     private int CurrentAmmo;
-    
+    public float MeleeUptime = 1;
+    private float RemainingMeleeCooldown;
     public float CooldownTime = 0.3f;
-
+    public GameObject MeleeHitbox;
     private float remainingCooldown;
     public float WaterBulletSpeed = 20f;
     public float FireBulletSpeed = 20f;
@@ -59,6 +60,11 @@ public class BulletSpawner : MonoBehaviour
                 bulletRB.velocity = transform.forward * GrassBulletSpeed;
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                MeleeHitbox.SetActive(true);
             }
             
         }

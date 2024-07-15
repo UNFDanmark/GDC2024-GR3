@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5085385456738452852}
-  Bulletprefab: {fileID: 4747031693992327984, guid: 1c6fcca92d67c6d418ffd93b937b7e06,
+  Bulletprefab: {fileID: 4747031693992327984, guid: 0a8d529e2751a31469446161f15f5b9f,
     type: 3}
   EnemyCooldownTime: 0.3
   EnemyBulletSpeed: 20
