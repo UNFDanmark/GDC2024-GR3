@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 1168067205247874119}
   - component: {fileID: 7143438898004437096}
   - component: {fileID: 7916649187097504788}
-  - component: {fileID: -1427808282578914760}
-  m_Layer: 7
-  m_Name: Fire bullet
-  m_TagString: FireBullet
+  - component: {fileID: -8013807870395535686}
+  m_Layer: 3
+  m_Name: EnemyFireBullet
+  m_TagString: EnemyBullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &-1427808282578914760
+--- !u!114 &-8013807870395535686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

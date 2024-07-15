@@ -12,6 +12,9 @@ TagManager:
   - GrassPickup
   - FirePickup
   - HealthPickup
+  - WaterBullet
+  - FireBullet
+  - GrassBullet
   layers:
   - Default
   - TransparentFX

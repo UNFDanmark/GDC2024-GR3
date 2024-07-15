@@ -67,21 +67,21 @@ public class BulletSpawner : MonoBehaviour
         {
             if (Physics.Raycast(transform.position, transform.forward, out RaycastHit Pickup, 5))
             {
-                if (Pickup.transform.CompareTag("WaterPickup"))
+                if (Pickup.transform.CompareTag("WaterPickup") && CurrentAmmo == 0)
                 {
                     Element = 1;
                     Destroy(Pickup.transform.gameObject);
                     CurrentAmmo = MaxAmmo;
                 }
 
-                if (Pickup.transform.CompareTag("FirePickup"))
+                if (Pickup.transform.CompareTag("FirePickup") && CurrentAmmo == 0)
                 {
                     Element = 2;
                     Destroy(Pickup.transform.gameObject);
                     CurrentAmmo = MaxAmmo;
                 }
 
-                if (Pickup.transform.CompareTag("GrassPickup"))
+                if (Pickup.transform.CompareTag("GrassPickup") && CurrentAmmo == 0)
                 {
                     Element = 3;
                     Destroy(Pickup.transform.gameObject);

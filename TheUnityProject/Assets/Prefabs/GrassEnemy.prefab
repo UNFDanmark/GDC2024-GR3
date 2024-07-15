@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 57c1d99cd2b868f419115e59238dc467, type: 2}
+  - {fileID: 2100000, guid: 19bd5ee21f7db2647b57ca3378acffc5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,10 +119,10 @@ GameObject:
   - component: {fileID: 3405924770644767806}
   - component: {fileID: 2291961793889085285}
   - component: {fileID: 4502411722267711918}
-  - component: {fileID: 2309943672830277475}
   - component: {fileID: 5085385456738452852}
+  - component: {fileID: 3993670306211428899}
   m_Layer: 6
-  m_Name: Enemy frame
+  m_Name: GrassEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,7 +173,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19bd5ee21f7db2647b57ca3378acffc5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,23 +216,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2309943672830277475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6696938567852047803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c36833aecc7b31e46a800b82a21b5247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 5085385456738452852}
-  Bulletprefab: {fileID: 4747031693992327984, guid: 1c6fcca92d67c6d418ffd93b937b7e06,
-    type: 3}
-  EnemyCooldownTime: 0.3
-  EnemyBulletSpeed: 20
 --- !u!195 &5085385456738452852
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -255,6 +238,26 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3993670306211428899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6696938567852047803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c12ce01998ff84484760bc7dc64e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 5085385456738452852}
+  Bulletprefab: {fileID: 4747031693992327984, guid: 1c6fcca92d67c6d418ffd93b937b7e06,
+    type: 3}
+  EnemyCooldownTime: 0.3
+  EnemyBulletSpeed: 20
+  EnemyHealth: 3
+  SuperEffective: 3
+  Normal: 1
 --- !u!1001 &7102432006642464946
 PrefabInstance:
   m_ObjectHideFlags: 0

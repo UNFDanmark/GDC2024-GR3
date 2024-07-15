@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9043018919470074216}
   m_Layer: 7
   m_Name: Water bullet
-  m_TagString: Bullets
+  m_TagString: WaterBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

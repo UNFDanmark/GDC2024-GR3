@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8090719012510207767}
   m_Layer: 7
   m_Name: Grass bullet
-  m_TagString: Bullets
+  m_TagString: GrassBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
