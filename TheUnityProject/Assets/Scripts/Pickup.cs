@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    public AudioSource PickUpSounds;
+
+    public int Healing = 1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        PickUpSounds = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,6 +24,8 @@ public class Pickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<Playermovement>().HealthPickedUp(Healing);
+            PickUpSounds.Play();
             Destroy(gameObject);
         }
     }
