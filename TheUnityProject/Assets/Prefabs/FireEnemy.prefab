@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 2291961793889085285}
   - component: {fileID: 4502411722267711918}
   - component: {fileID: 5085385456738452852}
-  - component: {fileID: 8077727338723996064}
+  - component: {fileID: 3949580018203599371}
   m_Layer: 6
   m_Name: FireEnemy
   m_TagString: Enemy
@@ -238,7 +238,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8077727338723996064
+--- !u!114 &3949580018203599371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,17 +247,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6696938567852047803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf8c92fcfc68334c8556cc2a3bb73b3, type: 3}
+  m_Script: {fileID: 11500000, guid: c36833aecc7b31e46a800b82a21b5247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5085385456738452852}
   Bulletprefab: {fileID: 4747031693992327984, guid: 81cb23fc1644a904c9653451a6fd9728,
     type: 3}
   EnemyCooldownTime: 0.3
+  EnemyElement: 2
   EnemyBulletSpeed: 20
   EnemyHealth: 3
   SuperEffective: 3
   Normal: 1
+  MeleeDamage: 1
 --- !u!1001 &7102432006642464946
 PrefabInstance:
   m_ObjectHideFlags: 0

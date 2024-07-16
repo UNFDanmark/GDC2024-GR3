@@ -165,10 +165,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979e008665206c745a3cf61864a6c3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bulletprefab: {fileID: 4747031693992327984, guid: 9a11d2c785d8a5241bd7d73a8173107a,
+  WaterBulletPrefab: {fileID: 4747031693992327984, guid: bfbed16247a821846b50b923612f65b0,
     type: 3}
+  FireBulletPrefab: {fileID: 4747031693992327984, guid: 65aaaf2e8c09a0f479e9543cec3682d9,
+    type: 3}
+  GrassBulletPrefab: {fileID: 4747031693992327984, guid: 9a11d2c785d8a5241bd7d73a8173107a,
+    type: 3}
+  MaxAmmo: 10
+  MeleeUptime: 1
   CooldownTime: 0.3
-  BulletSpeed: 20
+  MeleeHitbox: {fileID: 0}
+  WaterBulletSpeed: 20
+  FireBulletSpeed: 20
+  GrassBulletSpeed: 20
+  AmmoTekst: {fileID: 0}
 --- !u!1 &4693430139666205845
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +280,7 @@ MonoBehaviour:
   PlayerHealth: 10
   GameOverScreen: {fileID: 0}
   LivTekst: {fileID: 0}
+  Healing: 1
 --- !u!1 &5078357349456700614
 GameObject:
   m_ObjectHideFlags: 0

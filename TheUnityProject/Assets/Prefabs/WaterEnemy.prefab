@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1160817757493007371}
   - component: {fileID: 8550226670264850192}
   - component: {fileID: 8553921784646665755}
-  - component: {fileID: 5819747840022340940}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -84,29 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5819747840022340940
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5369159332456181099}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6696938567852047803
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,11 +207,13 @@ MonoBehaviour:
   agent: {fileID: 5085385456738452852}
   Bulletprefab: {fileID: 4747031693992327984, guid: 1c6fcca92d67c6d418ffd93b937b7e06,
     type: 3}
-  EnemyCooldownTime: 0.3
+  EnemyCooldownTime: 100000000
+  EnemyElement: 1
   EnemyBulletSpeed: 20
   EnemyHealth: 3
   SuperEffective: 3
   Normal: 1
+  MeleeDamage: 1
 --- !u!195 &5085385456738452852
 NavMeshAgent:
   m_ObjectHideFlags: 0
