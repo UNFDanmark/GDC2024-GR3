@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -28,8 +29,7 @@ public class Enemy : MonoBehaviour
     public int Normal = 1;
     public bool HealthPickupGuarentuee = false;
     public AudioSource EnemyHitSound;
-    public Animator EnemyShoot;
-    public Animator EnemyWalk;
+    public Animator animator;
     private Rigidbody EnemyRB;
     
     
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
             bulletRB.velocity = directiontoplayer * EnemyBulletSpeed;
             remainingCooldown = EnemyCooldownTime;
-            EnemyShoot.SetTrigger("EnemyShoot");
+            animator.SetTrigger("EnemyShoot");
         }
         if (EnemyHealth <= 0)
         {
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
                 Instantiate(HealthPickup,transform.position,Quaternion.identity);
             }
         }
-        EnemyWalk.SetFloat("EnemySpeed", EnemyRB.velocity.magnitude);
+        
     }
 
     private void OnCollisionEnter(Collision other)
