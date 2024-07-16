@@ -1,19 +1,18 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPickup : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
-    public AudioSource HealthPickUpSounds;
+    public AudioSource PickupSound;
 
-    public int Healing = 1;
     public float PickupDespawnTime = 10;
     private float RemainingDespawnTime;
+    
     // Start is called before the first frame update
     void Start()
     {
-        HealthPickUpSounds = GetComponent<AudioSource>();
+        PickupSound = GetComponent<AudioSource>();
         RemainingDespawnTime = PickupDespawnTime;
     }
 
@@ -29,15 +28,13 @@ public class HealthPickup : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<Playermovement>().HealthPickedUp(Healing);
-            HealthPickUpSounds.Play();
-            Destroy(gameObject);
+            PickupSound.Play();
         }
     }
 }
