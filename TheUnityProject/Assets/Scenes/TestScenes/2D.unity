@@ -341,6 +341,16 @@ PrefabInstance:
       propertyPath: mouseSensitivity
       value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 2785683710330780367, guid: dd7752901a6c6e247bd199301b637b33,
+        type: 3}
+      propertyPath: Element
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785683710330780367, guid: dd7752901a6c6e247bd199301b637b33,
+        type: 3}
+      propertyPath: CurrentAmmo
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4693430139666205845, guid: dd7752901a6c6e247bd199301b637b33,
         type: 3}
       propertyPath: m_Name
@@ -499,6 +509,13 @@ MonoBehaviour:
   - {fileID: 436611623}
   Camera: {fileID: 0}
   Ammo: 0
+  FireColor: {r: 1, g: 0, b: 0, a: 1}
+  WaterColor: {r: 0, g: 0.13494062, b: 1, a: 1}
+  FloralColor: {r: 0.009420095, g: 0.6679245, b: 0, a: 1}
+  CurrentElement: 0
+  FireSprite: {fileID: 0}
+  WaterSprite: {fileID: 0}
+  FloralSprite: {fileID: 0}
 --- !u!1 &402812323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1095,7 @@ PrefabInstance:
     - target: {fileID: 8258765440177788004, guid: d59602c102a5b50428a21b5b01135e7a,
         type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

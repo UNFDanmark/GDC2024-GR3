@@ -11,6 +11,18 @@ public class AmmoUI : MonoBehaviour
     public GameObject Camera;
 
     public int Ammo;
+
+    public Color FireColor;
+
+    public Color WaterColor;
+
+    public Color FloralColor;
+
+    public int CurrentElement;
+
+    public Sprite FireSprite;
+    public Sprite WaterSprite;
+    public Sprite FloralSprite;
     
     // Start is called before the first frame update
     void Start()
@@ -29,8 +41,6 @@ public class AmmoUI : MonoBehaviour
 
             int NameNumber = Int32.Parse(Name);
             
-            Debug.Log(NameNumber);
-            
             if (NameNumber > Ammo)
             {
                 RemoveSegment(g);
@@ -38,6 +48,42 @@ public class AmmoUI : MonoBehaviour
             else
             {
                 DisplaySegment(g);
+            }
+        }
+
+        CurrentElement = Camera.GetComponent<BulletSpawner>().Element;
+        
+        if (CurrentElement == 0)
+        {
+            print("you are boring");
+            foreach (GameObject g in EnergySegments)
+            {
+                g.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+            }
+        }
+        if (CurrentElement == 1)
+        {
+            print("you are blue");
+            foreach (GameObject g in EnergySegments)
+            {
+                g.GetComponent<Image>().color = WaterColor;
+            }
+        }
+        if (CurrentElement == 2)
+        {
+            print("you are red");
+            
+            foreach (GameObject g in EnergySegments)
+            {
+                g.GetComponent<Image>().color = FireColor;
+            }
+        }
+        if (CurrentElement == 3)
+        {
+            print("you are green");
+            foreach (GameObject g in EnergySegments)
+            {
+                g.GetComponent<Image>().color = FloralColor;
             }
         }
     }
