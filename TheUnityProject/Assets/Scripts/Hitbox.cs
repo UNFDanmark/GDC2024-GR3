@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
+    public AudioSource Bonk;
     public int Damage = 1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Bonk = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,6 +24,7 @@ public class Hitbox : MonoBehaviour
             print("hit enemy");
             Enemy e = other.gameObject.GetComponent<Enemy>();
             e.TakeDamage(Damage);
+            Bonk.Play();
         }
             
     }
