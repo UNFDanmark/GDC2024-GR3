@@ -58,7 +58,7 @@ public class Playermovement : MonoBehaviour
             audioSource.PlayOneShot(Jump);
         }
             
-        
+        GetComponent<AudioSource>().Play();
         
         
 
