@@ -6,11 +6,21 @@ TagManager:
   tags:
   - Enemy
   - Bullets
+  - PlayerRange
+  - EnemyBullets
+  - WaterPickup
+  - GrassPickup
+  - FirePickup
+  - HealthPickup
+  - WaterBullet
+  - FireBullet
+  - GrassBullet
+  - Melee
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - EnemyBullet
   - Water
   - UI
   - Enemies
