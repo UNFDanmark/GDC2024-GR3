@@ -51,7 +51,7 @@ public class Playermovement : MonoBehaviour
 
         rb.velocity = movement;
         
-        LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
+        //LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("GameScene");
