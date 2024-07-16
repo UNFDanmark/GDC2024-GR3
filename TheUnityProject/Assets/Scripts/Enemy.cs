@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
                 Instantiate(HealthPickup,transform.position, Quaternion.identity);
             }
 
-            if (HealthRandom == MaxHealthRandom)
+            if (HealthRandom == 1)
             {
                 Instantiate(HealthPickup,transform.position,Quaternion.identity);
             }
