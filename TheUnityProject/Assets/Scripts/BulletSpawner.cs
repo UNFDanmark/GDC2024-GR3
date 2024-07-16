@@ -11,7 +11,7 @@ public class BulletSpawner : MonoBehaviour
     public GameObject GrassBulletPrefab;
     private int Element;
     public int MaxAmmo = 10;
-    private int CurrentAmmo;
+    public int CurrentAmmo;
     public float MeleeUptime = 1;
     private float RemainingMeleeCooldown;
     public float CooldownTime = 0.3f;

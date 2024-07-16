@@ -1,50 +1,54 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AmmoUI : MonoBehaviour
 {
-    public GameObject[] HHearts;
+    public GameObject[] EnergySegments;
 
-    public GameObject Player;
+    public GameObject Camera;
 
-    public int Health;
+    public int Ammo;
     
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("Player");
+        Camera = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Health = Player.GetComponent<Playermovement>().PlayerHealth;
+        Ammo = Camera.GetComponent<BulletSpawner>().CurrentAmmo;
 
-        foreach (GameObject g in HHearts)
+        foreach (GameObject g in EnergySegments)
         {
             string Name = g.name;
 
             int NameNumber = Int32.Parse(Name);
             
-            if (NameNumber > Health)
+            Debug.Log(NameNumber);
+            
+            if (NameNumber > Ammo)
             {
-                MakeHHeartBlack(g);
+                RemoveSegment(g);
             }
             else
             {
-                MakeHHeartColor(g);
+                DisplaySegment(g);
             }
         }
     }
 
-    private void MakeHHeartBlack(GameObject Heart)
+    private void RemoveSegment(GameObject Segment)
     {
-        Heart.GetComponent<Image>().color = new Color(0, 0, 0);
+        Segment.GetComponent<Image>().color = new Color(255, 255, 255, 0);
     }
     
-    private void MakeHHeartColor(GameObject Heart)
+    private void DisplaySegment(GameObject Segment)
     {
-        Heart.GetComponent<Image>().color = new Color(255, 255, 255);
+        Segment.GetComponent<Image>().color = new Color(255, 255, 255, 255);
     }
 }
