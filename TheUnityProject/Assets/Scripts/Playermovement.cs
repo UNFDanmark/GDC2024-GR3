@@ -22,7 +22,7 @@ public class Playermovement : MonoBehaviour
     public AudioClip Landing;
     public AudioClip Jump;
     
-    private Rigidbody rb;
+    public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {

@@ -28,6 +28,9 @@ public class Enemy : MonoBehaviour
     public int Normal = 1;
     public bool HealthPickupGuarentuee = false;
     public AudioSource EnemyHitSound;
+    public Animator EnemyShoot;
+    public Animator EnemyWalk;
+    private Rigidbody EnemyRB;
     
     
 
@@ -56,6 +59,7 @@ public class Enemy : MonoBehaviour
             Rigidbody bulletRB = bullet.GetComponent<Rigidbody>();
             bulletRB.velocity = directiontoplayer * EnemyBulletSpeed;
             remainingCooldown = EnemyCooldownTime;
+            EnemyShoot.SetTrigger("EnemyShoot");
         }
         if (EnemyHealth <= 0)
         {
@@ -83,6 +87,7 @@ public class Enemy : MonoBehaviour
                 Instantiate(HealthPickup,transform.position,Quaternion.identity);
             }
         }
+        EnemyWalk.SetFloat("EnemySpeed", EnemyRB.velocity.magnitude);
     }
 
     private void OnCollisionEnter(Collision other)
