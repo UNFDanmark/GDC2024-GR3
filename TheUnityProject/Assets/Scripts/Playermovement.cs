@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 
 public class Playermovement : MonoBehaviour
@@ -16,9 +17,10 @@ public class Playermovement : MonoBehaviour
     public GameObject GameOverScreen;
     public TextMeshProUGUI LivTekst;
     //public int Healing = 1;
-    public AudioSource Jump;
+    AudioSource audioSource;
     public bool HasJumped;
-    public AudioSource Landing;
+    public AudioClip Landing;
+    public AudioClip Jump;
     
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -27,8 +29,8 @@ public class Playermovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         CurrentHealth = PlayerHealth;
-        Jump = GetComponent<AudioSource>();
-        Landing = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        //Landing = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -53,7 +55,7 @@ public class Playermovement : MonoBehaviour
         {
             movement.y = JumpHeight;
             HasJumped = true;
-            Jump.Play();
+            audioSource.PlayOneShot(Jump);
         }
             
         
@@ -77,7 +79,7 @@ public class Playermovement : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             HasJumped = false;
-            Landing.Play();
+            //audioSource.PlayOneShot(Landing);
         }
     }   
 

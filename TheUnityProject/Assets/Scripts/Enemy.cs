@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
     public int SuperEffective = 3;
     public int Normal = 1;
     public bool HealthPickupGuarentuee = false;
+    public AudioSource EnemyHitSound;
     
     
 
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         agent.SetDestination(player.transform.position);
         remainingCooldown = EnemyCooldownTime;
+        EnemyHitSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -90,6 +92,7 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("WaterBullet"))
             {
                 EnemyHealth -= Normal;
+                EnemyHitSound.Play();
 
                 Destroy(other.gameObject);
 
@@ -98,6 +101,7 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("FireBullet"))
             {
                 EnemyHealth -= Normal;
+                EnemyHitSound.Play();
 
                 Destroy(other.gameObject);
 
@@ -107,6 +111,7 @@ public class Enemy : MonoBehaviour
             {
 
                 EnemyHealth -= SuperEffective;
+                EnemyHitSound.Play();
 
 
                 Destroy(other.gameObject);
@@ -119,6 +124,7 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("WaterBullet"))
             {
                 EnemyHealth -= SuperEffective;
+                EnemyHitSound.Play();
 
 
                 Destroy(other.gameObject);
@@ -128,12 +134,14 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("FireBullet"))
             {
                 EnemyHealth -= Normal;
+                EnemyHitSound.Play();
                 Destroy(other.gameObject);
             }
 
             if (other.gameObject.CompareTag("GrassBullet"))
             {
                 EnemyHealth -= Normal;
+                EnemyHitSound.Play();
                 Destroy(other.gameObject);
             }
         }
@@ -143,6 +151,7 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("WaterBullet"))
             {
                 EnemyHealth -= Normal;
+                EnemyHitSound.Play();
                 Destroy(other.gameObject);
 
             }
@@ -150,6 +159,7 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("FireBullet"))
             {
                 EnemyHealth -= SuperEffective;
+                EnemyHitSound.Play();
                 Destroy(other.gameObject);
 
             }
@@ -157,6 +167,7 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("GrassBullet"))
             {
                 EnemyHealth -= Normal;
+                EnemyHitSound.Play();
                 Destroy(other.gameObject);
             }
 
@@ -169,5 +180,7 @@ public class Enemy : MonoBehaviour
     {
         print("melee hit");
         EnemyHealth -= damage;
+        EnemyHitSound.Play();
+        
     }
 }
