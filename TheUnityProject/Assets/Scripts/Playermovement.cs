@@ -16,6 +16,9 @@ public class Playermovement : MonoBehaviour
     public GameObject GameOverScreen;
     public TextMeshProUGUI LivTekst;
     public int Healing = 1;
+    public AudioSource Jump;
+    public bool HasJumped;
+    public AudioSource Landing;
 
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -24,6 +27,8 @@ public class Playermovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         CurrentHealth = PlayerHealth;
+        Jump = GetComponent<AudioSource>();
+        Landing = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,8 +49,17 @@ public class Playermovement : MonoBehaviour
 
         if (transform.position.y <= 1)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && HasJumped == false)
+            {
                 movement.y = JumpHeight;
+                HasJumped = true;
+                Jump.Play();
+            }
+            else if (HasJumped == true)
+            {
+                HasJumped = false;
+                Landing.Play();
+            }
         }
         
 
