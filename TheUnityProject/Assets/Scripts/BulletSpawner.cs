@@ -10,7 +10,7 @@ public class BulletSpawner : MonoBehaviour
     public GameObject WaterBulletPrefab;
     public GameObject FireBulletPrefab;
     public GameObject GrassBulletPrefab;
-    private int Element;
+    public int Element;
     public int MaxAmmo = 10;
     public int CurrentAmmo;
     public float MeleeUptime = 1;
