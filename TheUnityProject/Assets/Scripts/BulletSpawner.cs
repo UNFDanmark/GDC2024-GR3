@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,8 +22,10 @@ public class BulletSpawner : MonoBehaviour
     public float FireBulletSpeed = 20f;
     public float GrassBulletSpeed = 20f;
     public AudioSource CastingSounds;
+    public bool AutoPickup;
 
     public TextMeshProUGUI AmmoTekst;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +71,7 @@ public class BulletSpawner : MonoBehaviour
                 CastingSounds.Play();
             }
 
-            
+
         }
 
         if (RemainingMeleeCooldown >= 0)
@@ -82,17 +85,18 @@ public class BulletSpawner : MonoBehaviour
             {
                 print("hej");
                 MeleeHitbox.SetActive(true);
-                
+
             }
         }
+
         if (RemainingMeleeCooldown <= 0)
         {
             MeleeHitbox.SetActive(false);
             RemainingMeleeCooldown = MeleeUptime;
         }
-       
 
-        if (Input.GetKeyDown(KeyCode.E))
+
+        if (Input.GetKeyDown(KeyCode.E) && AutoPickup == false)
         {
             if (Physics.Raycast(transform.position, transform.forward, out RaycastHit Pickup, 5))
             {
@@ -116,6 +120,33 @@ public class BulletSpawner : MonoBehaviour
                     Destroy(Pickup.transform.gameObject);
                     CurrentAmmo = MaxAmmo;
                 }
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (AutoPickup == true)
+        {
+            if (other.gameObject.CompareTag("WaterPickup") && CurrentAmmo == 0)
+            {
+                Element = 1;
+                Destroy(other.gameObject);
+                CurrentAmmo = MaxAmmo;
+            }
+
+            if (other.gameObject.CompareTag("FirePickup") && CurrentAmmo == 0)
+            {
+                Element = 2;
+                Destroy(other.gameObject);
+                CurrentAmmo = MaxAmmo;
+            }
+
+            if (other.gameObject.CompareTag("GrassPickup") && CurrentAmmo == 0)
+            {
+                Element = 3;
+                Destroy(other.gameObject);
+                CurrentAmmo = MaxAmmo;
             }
         }
     }

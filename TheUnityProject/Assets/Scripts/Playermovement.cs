@@ -15,11 +15,11 @@ public class Playermovement : MonoBehaviour
     private int CurrentHealth;
     public GameObject GameOverScreen;
     public TextMeshProUGUI LivTekst;
-    public int Healing = 1;
+    //public int Healing = 1;
     public AudioSource Jump;
     public bool HasJumped;
     public AudioSource Landing;
-
+    
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -47,20 +47,17 @@ public class Playermovement : MonoBehaviour
         movement.y = rb.velocity.y;
         
 
-        if (transform.position.y <= 1)
+        
+        
+        if (Input.GetKeyDown(KeyCode.Space) && HasJumped == false)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && HasJumped == false)
-            {
-                movement.y = JumpHeight;
-                HasJumped = true;
-                Jump.Play();
-            }
-            else if (HasJumped == true)
-            {
-                HasJumped = false;
-                Landing.Play();
-            }
+            movement.y = JumpHeight;
+            HasJumped = true;
+            Jump.Play();
         }
+            
+        
+        
         
 
         rb.velocity = movement;
@@ -77,13 +74,10 @@ public class Playermovement : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("HealthPickup"))
+        if (other.gameObject.CompareTag("Ground"))
         {
-            Destroy(other.gameObject);
-            if (CurrentHealth < PlayerHealth)
-            {
-                CurrentHealth += Healing ;
-            }
+            HasJumped = false;
+            Landing.Play();
         }
     }   
 
@@ -105,5 +99,10 @@ public class Playermovement : MonoBehaviour
         
     }
 
-    
+    public void HealthPickedUp(int Healing)
+    {
+        CurrentHealth += Healing;
+    }
+
+
 }
