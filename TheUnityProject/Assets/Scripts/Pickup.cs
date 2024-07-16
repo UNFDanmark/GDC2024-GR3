@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    public AudioSource PickUpSounds;
     // Start is called before the first frame update
     void Start()
     {
-        
+        PickUpSounds = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class Pickup : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
+            PickUpSounds.Play();
         }
     }
 }
