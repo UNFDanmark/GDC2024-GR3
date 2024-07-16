@@ -59,6 +59,7 @@ public class AmmoUI : MonoBehaviour
             foreach (GameObject g in EnergySegments)
             {
                 g.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+                
             }
         }
         if (CurrentElement == 1)
@@ -67,6 +68,7 @@ public class AmmoUI : MonoBehaviour
             foreach (GameObject g in EnergySegments)
             {
                 g.GetComponent<Image>().color = WaterColor;
+                GameObject.Find("Icon").GetComponent<Image>().sprite = WaterSprite;
             }
         }
         if (CurrentElement == 2)
@@ -76,6 +78,7 @@ public class AmmoUI : MonoBehaviour
             foreach (GameObject g in EnergySegments)
             {
                 g.GetComponent<Image>().color = FireColor;
+                GameObject.Find("Icon").GetComponent<Image>().sprite = FireSprite;
             }
         }
         if (CurrentElement == 3)
@@ -84,17 +87,20 @@ public class AmmoUI : MonoBehaviour
             foreach (GameObject g in EnergySegments)
             {
                 g.GetComponent<Image>().color = FloralColor;
+                GameObject.Find("Icon").GetComponent<Image>().sprite = FloralSprite;
             }
         }
     }
 
     private void RemoveSegment(GameObject Segment)
     {
-        Segment.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+        //Segment.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+        Segment.SetActive(false);
     }
     
     private void DisplaySegment(GameObject Segment)
     {
-        Segment.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+        //Segment.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+        Segment.SetActive(true);
     }
 }
