@@ -119,8 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de3e98550d5e954198b295bf00baec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickUpSounds: {fileID: 7688612644959436400}
+  HealthPickUpSounds: {fileID: 7688612644959436400}
   Healing: 1
+  PickupDespawnTime: 10
 --- !u!82 &7688612644959436400
 AudioSource:
   m_ObjectHideFlags: 0
