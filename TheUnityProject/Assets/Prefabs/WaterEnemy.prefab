@@ -207,13 +207,23 @@ MonoBehaviour:
   agent: {fileID: 5085385456738452852}
   Bulletprefab: {fileID: 4747031693992327984, guid: 1c6fcca92d67c6d418ffd93b937b7e06,
     type: 3}
+  WeedPickup: {fileID: 8975499041124285715, guid: 41394cc9f8457294d9a16048885c81d5,
+    type: 3}
+  WaterPickup: {fileID: 6557853049751580340, guid: a254d32ddcea6c244884ae9be0f5a400,
+    type: 3}
+  FirePickup: {fileID: 7074418817455495591, guid: 1df6390392befb147b708864518ef31a,
+    type: 3}
+  HealthPickup: {fileID: 2956525019395356154, guid: 8c0720ee949ed854f9c065d8f981d742,
+    type: 3}
+  MinHealthRandom: 1
+  MaxHealthRandom: 2
   EnemyCooldownTime: 100000000
   EnemyElement: 1
   EnemyBulletSpeed: 20
   EnemyHealth: 3
   SuperEffective: 3
   Normal: 1
-  MeleeDamage: 1
+  HealthPickupGuarentuee: 0
 --- !u!195 &5085385456738452852
 NavMeshAgent:
   m_ObjectHideFlags: 0

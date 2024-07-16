@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 public class Playermovement : MonoBehaviour
@@ -51,8 +52,13 @@ public class Playermovement : MonoBehaviour
         rb.velocity = movement;
         
         LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("GameScene");
+            Time.timeScale = 1;
+        }
             
-
+     
 
     }
     private void OnTriggerEnter(Collider other)

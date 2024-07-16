@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1160817757493007371}
   - component: {fileID: 8550226670264850192}
   - component: {fileID: 8553921784646665755}
-  - component: {fileID: 5819747840022340940}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -84,29 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5819747840022340940
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5369159332456181099}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6696938567852047803
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,13 +229,23 @@ MonoBehaviour:
   agent: {fileID: 5085385456738452852}
   Bulletprefab: {fileID: 4747031693992327984, guid: 0a8d529e2751a31469446161f15f5b9f,
     type: 3}
-  EnemyCooldownTime: 0.3
+  WeedPickup: {fileID: 8975499041124285715, guid: 41394cc9f8457294d9a16048885c81d5,
+    type: 3}
+  WaterPickup: {fileID: 6557853049751580340, guid: a254d32ddcea6c244884ae9be0f5a400,
+    type: 3}
+  FirePickup: {fileID: 7074418817455495591, guid: 1df6390392befb147b708864518ef31a,
+    type: 3}
+  HealthPickup: {fileID: 2956525019395356154, guid: 8c0720ee949ed854f9c065d8f981d742,
+    type: 3}
+  MinHealthRandom: 1
+  MaxHealthRandom: 2
+  EnemyCooldownTime: 1000000
   EnemyElement: 3
   EnemyBulletSpeed: 20
   EnemyHealth: 3
   SuperEffective: 3
   Normal: 1
-  MeleeDamage: 1
+  HealthPickupGuarentuee: 0
 --- !u!1001 &7102432006642464946
 PrefabInstance:
   m_ObjectHideFlags: 0

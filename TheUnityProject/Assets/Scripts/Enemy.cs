@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,6 +11,14 @@ public class Enemy : MonoBehaviour
 
     public GameObject Bulletprefab;
 
+    public GameObject WeedPickup;
+
+    public GameObject WaterPickup;
+
+    public GameObject FirePickup;
+    public GameObject HealthPickup;
+    public int MinHealthRandom;
+    public int MaxHealthRandom;
     public float EnemyCooldownTime = 0.3f;
     public int EnemyElement;
     private float remainingCooldown;
@@ -17,6 +26,8 @@ public class Enemy : MonoBehaviour
     public int EnemyHealth = 3;
     public int SuperEffective = 3;
     public int Normal = 1;
+    public bool HealthPickupGuarentuee = false;
+    
     
 
     private GameObject player;
@@ -47,6 +58,28 @@ public class Enemy : MonoBehaviour
         if (EnemyHealth <= 0)
         {
             Destroy(gameObject);
+            int HealthRandom = Random.Range(MinHealthRandom, MaxHealthRandom);
+            if (EnemyElement==1)
+            {
+                Instantiate(WaterPickup, transform.position, Quaternion.identity);
+            }
+            if (EnemyElement==2)
+            {
+                Instantiate(FirePickup, transform.position, Quaternion.identity);
+            }
+            if (EnemyElement==3)
+            {
+                Instantiate(WeedPickup, transform.position, Quaternion.identity);
+            }
+            if (HealthPickupGuarentuee == true)
+            {
+                Instantiate(HealthPickup,transform.position, Quaternion.identity);
+            }
+
+            if (HealthRandom == MaxHealthRandom)
+            {
+                Instantiate(HealthPickup,transform.position,Quaternion.identity);
+            }
         }
     }
 
@@ -57,10 +90,6 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("WaterBullet"))
             {
                 EnemyHealth -= Normal;
-                if (EnemyHealth <= 0)
-                {
-                    Destroy(gameObject);
-                }
 
                 Destroy(other.gameObject);
 
@@ -69,10 +98,6 @@ public class Enemy : MonoBehaviour
             if (other.gameObject.CompareTag("FireBullet"))
             {
                 EnemyHealth -= Normal;
-                if (EnemyHealth <= 0)
-                {
-                    Destroy(gameObject);
-                }
 
                 Destroy(other.gameObject);
 
@@ -82,94 +107,63 @@ public class Enemy : MonoBehaviour
             {
 
                 EnemyHealth -= SuperEffective;
-                if (EnemyHealth <= 0)
-                {
-                    Destroy(gameObject);
-                }
 
+
+                Destroy(other.gameObject);
+
+            }
+        }
+
+        if (EnemyElement == 2)
+        {
+            if (other.gameObject.CompareTag("WaterBullet"))
+            {
+                EnemyHealth -= SuperEffective;
+
+
+                Destroy(other.gameObject);
+
+            }
+
+            if (other.gameObject.CompareTag("FireBullet"))
+            {
+                EnemyHealth -= Normal;
                 Destroy(other.gameObject);
             }
 
-            if (EnemyElement == 2)
+            if (other.gameObject.CompareTag("GrassBullet"))
             {
-                if (other.gameObject.CompareTag("WaterBullet"))
-                {
-                    EnemyHealth -= SuperEffective;
-                    if (EnemyHealth <= 0)
-                    {
-                        Destroy(gameObject);
-                    }
-
-                    Destroy(other.gameObject);
-
-                }
-
-                if (other.gameObject.CompareTag("FireBullet"))
-                {
-                    EnemyHealth -= Normal;
-                    if (EnemyHealth <= 0)
-                    {
-                        Destroy(gameObject);
-                    }
-
-                    Destroy(other.gameObject);
-
-                }
-
-                if (other.gameObject.CompareTag("GrassBullet"))
-                {
-
-                    EnemyHealth -= SuperEffective;
-                    if (EnemyHealth <= 0)
-                    {
-                        Destroy(gameObject);
-                    }
-
-                    Destroy(other.gameObject);
-                }
-
-                if (EnemyElement == 3)
-                {
-                    if (other.gameObject.CompareTag("WaterBullet"))
-                    {
-                        EnemyHealth -= Normal;
-                        if (EnemyHealth <= 0)
-                        {
-                            Destroy(gameObject);
-                        }
-
-                        Destroy(other.gameObject);
-
-                    }
-
-                    if (other.gameObject.CompareTag("FireBullet"))
-                    {
-                        EnemyHealth -= SuperEffective;
-                        if (EnemyHealth <= 0)
-                        {
-                            Destroy(gameObject);
-                        }
-
-                        Destroy(other.gameObject);
-
-                    }
-
-                    if (other.gameObject.CompareTag("GrassBullet"))
-                    {
-
-                        EnemyHealth -= SuperEffective;
-                        if (EnemyHealth <= 0)
-                        {
-                            Destroy(gameObject);
-                        }
-
-                        Destroy(other.gameObject);
-                    }
-
-                }
+                EnemyHealth -= Normal;
+                Destroy(other.gameObject);
             }
         }
+
+        if (EnemyElement == 3)
+        {
+            if (other.gameObject.CompareTag("WaterBullet"))
+            {
+                EnemyHealth -= Normal;
+                Destroy(other.gameObject);
+
+            }
+
+            if (other.gameObject.CompareTag("FireBullet"))
+            {
+                EnemyHealth -= SuperEffective;
+                Destroy(other.gameObject);
+
+            }
+
+            if (other.gameObject.CompareTag("GrassBullet"))
+            {
+                EnemyHealth -= Normal;
+                Destroy(other.gameObject);
+            }
+
+        }
     }
+    
+    
 
     public void TakeDamage(int damage)
     {
