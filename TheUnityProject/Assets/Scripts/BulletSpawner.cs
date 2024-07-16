@@ -83,7 +83,7 @@ public class BulletSpawner : MonoBehaviour
         {
             if (RemainingMeleeCooldown > 0)
             {
-                print("hej");
+                
                 MeleeHitbox.SetActive(true);
 
             }
