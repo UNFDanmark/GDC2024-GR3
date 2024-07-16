@@ -217,7 +217,7 @@ MonoBehaviour:
     type: 3}
   MinHealthRandom: 1
   MaxHealthRandom: 2
-  EnemyCooldownTime: 100000000
+  EnemyCooldownTime: 2
   EnemyElement: 1
   EnemyBulletSpeed: 20
   EnemyHealth: 3
