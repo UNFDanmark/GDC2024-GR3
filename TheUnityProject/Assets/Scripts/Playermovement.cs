@@ -28,7 +28,7 @@ public class Playermovement : MonoBehaviour
     public TextMeshProUGUI FinalScore;
     public GameObject AmmoBar;
     public GameObject ScoreTextObject;
-    public GameObject FinalScoreObject;
+    
     
     public Rigidbody rb;
     // Start is called before the first frame update
@@ -58,7 +58,14 @@ public class Playermovement : MonoBehaviour
 
         ScoreText.text = "Score:" + CurrentScore.ToString();
 
-        
+        if (CurrentHealth <= 0)
+        {
+            FinalScore.text = "Score:" + CurrentScore.ToString();
+            AmmoBar.SetActive(false);
+            ScoreTextObject.SetActive(false);
+            GameOverScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
         
         if (Input.GetKeyDown(KeyCode.Space) && HasJumped == false)
         {
@@ -85,15 +92,7 @@ public class Playermovement : MonoBehaviour
             SceneManager.LoadScene("TitleScreen");
         }
         
-        if (CurrentHealth <= 0)
-        {
-            FinalScore.text = "Score:" + CurrentScore.ToString();
-            AmmoBar.SetActive(false);
-            Time.timeScale = 0;
-            ScoreTextObject.SetActive(false);
-            //FinalScoreObject.SetActive(true);
-            GameOverScreen.SetActive(true);
-        }
+        
      
 
     }
