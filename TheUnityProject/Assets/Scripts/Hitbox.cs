@@ -6,10 +6,11 @@ public class Hitbox : MonoBehaviour
 {
     public AudioSource Bonk;
     public int Damage = 1;
+    public soundController SoundController;
     // Start is called before the first frame update
     void Start()
     {
-        Bonk = GetComponent<AudioSource>();
+       // Bonk = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,10 +22,12 @@ public class Hitbox : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+           
             print("hit enemy");
             Enemy e = other.gameObject.GetComponent<Enemy>();
             e.TakeDamage(Damage);
-            Bonk.Play();
+          //  Bonk.Play();
+            SoundController.playaudio(0);
         }
             
     }
