@@ -22,6 +22,8 @@ public class Playermovement : MonoBehaviour
     public AudioClip Landing;
     public AudioClip Jump;
     public soundController SoundController;
+    public int CurrentScore;
+    public int EnemyScore = 100;
     
     public Rigidbody rb;
     // Start is called before the first frame update
@@ -99,6 +101,11 @@ public class Playermovement : MonoBehaviour
     public void BulletDamage()
     {
         CurrentHealth -= 1;
+    }
+
+    public void ScoreAdded()
+    {
+        CurrentScore += EnemyScore;
     }
 
 

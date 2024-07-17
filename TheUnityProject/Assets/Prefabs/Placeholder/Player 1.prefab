@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bonk: {fileID: 1820039636382280020}
   Damage: 1
+  SoundController: {fileID: 0}
 --- !u!82 &1820039636382280020
 AudioSource:
   m_ObjectHideFlags: 0
@@ -574,6 +575,9 @@ MonoBehaviour:
   HasJumped: 0
   Landing: {fileID: 8300000, guid: 74e479119e630e145a22906203dc4731, type: 3}
   Jump: {fileID: 8300000, guid: 3dd91f48221bf0b4e9228df22b92dabc, type: 3}
+  SoundController: {fileID: 0}
+  CurrentScore: 0
+  EnemyScore: 100
   rb: {fileID: 0}
 --- !u!82 &1673424918394208572
 AudioSource:
@@ -753,7 +757,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f4b4c4ac49ea549718e21cddda2b72f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

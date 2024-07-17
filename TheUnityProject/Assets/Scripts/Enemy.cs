@@ -63,7 +63,8 @@ public class Enemy : MonoBehaviour
         }
         if (EnemyHealth <= 0)
         {
-            Destroy(gameObject);
+            
+            
             int HealthRandom = Random.Range(MinHealthRandom, MaxHealthRandom);
             if (EnemyElement==1)
             {
@@ -86,6 +87,7 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(HealthPickup,transform.position,Quaternion.identity);
             }
+            Destroy(gameObject);
         }
         
     }
@@ -189,8 +191,5 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public void AddScore()
-    {
-        
-    }
+    
 }
