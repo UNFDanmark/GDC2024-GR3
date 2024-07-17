@@ -8,12 +8,17 @@ public class Pickup : MonoBehaviour
 
     public float PickupDespawnTime = 10;
     private float RemainingDespawnTime;
-    
+    public soundController SoundController;
+
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         PickupSound = GetComponent<AudioSource>();
+        
         RemainingDespawnTime = PickupDespawnTime;
+        player = GameObject.Find("player");
+        
     }
 
     // Update is called once per frame
@@ -34,7 +39,9 @@ public class Pickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PickupSound.Play();
+           // PickupSound.Play();
+           AudioSource.PlayClipAtPoint(PickupSound.clip, transform.position);
+           //SoundController.playaudio(3);
         }
     }
 }
