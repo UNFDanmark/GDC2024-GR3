@@ -24,6 +24,11 @@ public class Playermovement : MonoBehaviour
     public soundController SoundController;
     public int CurrentScore;
     public int EnemyScore = 100;
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI FinalScore;
+    public GameObject AmmoBar;
+    public GameObject ScoreTextObject;
+    public GameObject FinalScoreObject;
     
     public Rigidbody rb;
     // Start is called before the first frame update
@@ -50,7 +55,8 @@ public class Playermovement : MonoBehaviour
         //velocity
         movement = movement.normalized * speed; 
         movement.y = rb.velocity.y;
-        
+
+        ScoreText.text = "Score:" + CurrentScore.ToString();
 
         
         
@@ -78,7 +84,11 @@ public class Playermovement : MonoBehaviour
         
         if (CurrentHealth <= 0)
         {
+            FinalScore.text = "Score:" + CurrentScore.ToString();
+            AmmoBar.SetActive(false);
             Time.timeScale = 0;
+            ScoreTextObject.SetActive(false);
+            //FinalScoreObject.SetActive(true);
             GameOverScreen.SetActive(true);
         }
      
