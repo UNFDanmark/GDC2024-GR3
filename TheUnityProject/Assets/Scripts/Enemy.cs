@@ -188,4 +188,9 @@ public class Enemy : MonoBehaviour
         EnemyHitSound.Play();
         
     }
+
+    public void AddScore()
+    {
+        
+    }
 }

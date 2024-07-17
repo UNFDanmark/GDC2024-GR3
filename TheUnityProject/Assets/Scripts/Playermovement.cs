@@ -57,7 +57,7 @@ public class Playermovement : MonoBehaviour
             movement.y = JumpHeight;
             HasJumped = true;
            // audioSource.PlayOneShot(Jump);
-            SoundController.playaudio(2);
+           //SoundController.playaudio(2);
         }
             
       
@@ -89,11 +89,7 @@ public class Playermovement : MonoBehaviour
             //audioSource.PlayOneShot(Landing);
         }
     }   
-
-    private void OnCollisionEnter(Collision other)
-    {
-        
-    }
+    
 
     public void HealthPickedUp(int Healing)
     {
