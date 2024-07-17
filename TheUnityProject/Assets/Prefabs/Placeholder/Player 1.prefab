@@ -198,7 +198,7 @@ Transform:
   m_GameObject: {fileID: 2343807117842748352}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.17500001, z: 0}
+  m_LocalPosition: {x: 0, y: 0.17500001, z: 0.187}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0a256e0600fc246a9eb13bab8bcb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 10000
+  mouseSensitivity: 1000
   playerBody: {fileID: 829286693220628939}
 --- !u!114 &2785683710330780367
 MonoBehaviour:
@@ -351,6 +351,7 @@ MonoBehaviour:
   GrassBulletSpeed: 20
   CastingSounds: {fileID: 1524217718150478890}
   AutoPickup: 1
+  animator: {fileID: 0}
   AmmoTekst: {fileID: 0}
 --- !u!82 &1524217718150478890
 AudioSource:
@@ -467,8 +468,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.6, z: 1}
-  m_Center: {x: 0, y: -0.1, z: 0}
+  m_Size: {x: 1, y: 1.6, z: 1.1171036}
+  m_Center: {x: 0, y: -0.100000024, z: -0.1468544}
 --- !u!1 &4693430139666205845
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +515,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4693430139666205845}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 03a700f1d7e02eb49af6c1cdec10b543, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -570,6 +571,7 @@ MonoBehaviour:
   speed: 10
   JumpHeight: 10
   PlayerHealth: 10
+  CurrentHealth: 0
   GameOverScreen: {fileID: 0}
   LivTekst: {fileID: 0}
   HasJumped: 0
