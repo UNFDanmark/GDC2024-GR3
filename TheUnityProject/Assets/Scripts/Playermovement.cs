@@ -89,6 +89,7 @@ public class Playermovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("TitleScreen");
         }
         

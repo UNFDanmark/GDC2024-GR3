@@ -172,7 +172,7 @@ MonoBehaviour:
   SeenPlayer: 0
   SightRange: 20
   ShootRange: 10
-  EnemySight: 1
+  EnemySight: 0
 --- !u!82 &9158763736248284418
 AudioSource:
   m_ObjectHideFlags: 0

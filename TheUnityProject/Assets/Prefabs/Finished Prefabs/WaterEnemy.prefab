@@ -232,7 +232,7 @@ MonoBehaviour:
   SeenPlayer: 0
   SightRange: 20
   ShootRange: 10
-  EnemySight: 1
+  EnemySight: 0
 --- !u!195 &7660640856008659028
 NavMeshAgent:
   m_ObjectHideFlags: 0
