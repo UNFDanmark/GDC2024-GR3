@@ -23,6 +23,7 @@ public class AmmoUI : MonoBehaviour
     public Sprite FireSprite;
     public Sprite WaterSprite;
     public Sprite FloralSprite;
+    public Sprite TransSprite;
     
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,7 @@ public class AmmoUI : MonoBehaviour
             foreach (GameObject g in EnergySegments)
             {
                 g.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+                GameObject.Find("Icon").GetComponent<Image>().sprite = TransSprite;
                 
             }
         }

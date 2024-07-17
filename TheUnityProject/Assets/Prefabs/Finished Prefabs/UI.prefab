@@ -261,6 +261,7 @@ MonoBehaviour:
   FireSprite: {fileID: 21300000, guid: 80ce67f9a23723a48beb4aa17552d78c, type: 3}
   WaterSprite: {fileID: 21300000, guid: 59a514b6a5573f7429cd2ab8a62070d5, type: 3}
   FloralSprite: {fileID: 21300000, guid: d66ccf261e4de5845984e59bc01b3beb, type: 3}
+  TransSprite: {fileID: 21300000, guid: 8842c7007a96a974aa33f8166d6f46b1, type: 3}
 --- !u!1 &976392075140823485
 GameObject:
   m_ObjectHideFlags: 0
