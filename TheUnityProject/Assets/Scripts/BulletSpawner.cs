@@ -23,7 +23,8 @@ public class BulletSpawner : MonoBehaviour
     public float GrassBulletSpeed = 20f;
     public AudioSource CastingSounds;
     public bool AutoPickup;
-    public Animator animator;
+    public Animator animatorLeft;
+    public Animator animatorRight;
 
     public TextMeshProUGUI AmmoTekst;
 
@@ -46,7 +47,8 @@ public class BulletSpawner : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Mouse0) && remainingCooldown <= 0 && CurrentAmmo > 0)
         {
-            animator.SetTrigger("Cast");
+            animatorRight.SetTrigger("Cast");
+            animatorLeft.SetTrigger("Cast");
             if (Element == 1)
             {
                 GameObject bullet = Instantiate(WaterBulletPrefab, transform.position, Quaternion.identity);
@@ -85,7 +87,8 @@ public class BulletSpawner : MonoBehaviour
 
 
         }
-        animator.SetTrigger("Exit");
+        animatorLeft.SetTrigger("Exit");
+        animatorRight.SetTrigger("Exit");
 
         if (RemainingMeleeCooldown >= 0)
         {
@@ -96,7 +99,8 @@ public class BulletSpawner : MonoBehaviour
         {
             if (RemainingMeleeCooldown > 0)
             {
-                animator.SetTrigger("Punch");
+                animatorLeft.SetTrigger("Punch");
+                animatorRight.SetTrigger("Punch");
                 MeleeHitbox.SetActive(true);
                 
 
@@ -107,7 +111,8 @@ public class BulletSpawner : MonoBehaviour
         {
             MeleeHitbox.SetActive(false);
             RemainingMeleeCooldown = MeleeUptime;
-            animator.SetTrigger("Exit");
+            animatorLeft.SetTrigger("Exit");
+            animatorRight.SetTrigger("Exit");
         }
 
 
