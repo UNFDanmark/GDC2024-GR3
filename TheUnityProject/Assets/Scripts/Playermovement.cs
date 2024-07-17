@@ -21,6 +21,7 @@ public class Playermovement : MonoBehaviour
     public bool HasJumped;
     public AudioClip Landing;
     public AudioClip Jump;
+    public soundController SoundController;
     
     public Rigidbody rb;
     // Start is called before the first frame update
@@ -55,10 +56,11 @@ public class Playermovement : MonoBehaviour
         {
             movement.y = JumpHeight;
             HasJumped = true;
-            audioSource.PlayOneShot(Jump);
+           // audioSource.PlayOneShot(Jump);
+            SoundController.playaudio(2);
         }
             
-        GetComponent<AudioSource>().Play();
+      
         
         
 
