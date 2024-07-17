@@ -7,7 +7,7 @@ public class ArenaButton : MonoBehaviour
 {
     public void StartArena()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("Arena");
     }
     
 }

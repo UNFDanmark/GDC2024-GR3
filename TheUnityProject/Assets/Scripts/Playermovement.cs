@@ -77,9 +77,12 @@ public class Playermovement : MonoBehaviour
         //LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
         if (Input.GetKeyDown(KeyCode.R))
         {
-            
-            SceneManager.LoadScene("GameScene");
-            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SceneManager.LoadScene("TitleScreen");
         }
         
         if (CurrentHealth <= 0)
