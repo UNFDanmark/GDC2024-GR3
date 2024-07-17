@@ -43,7 +43,7 @@ public class BulletSpawner : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Mouse0) && remainingCooldown <= 0 && CurrentAmmo > 0)
         {
-            
+            animator.SetTrigger("Cast");
             if (Element == 1)
             {
                 GameObject bullet = Instantiate(WaterBulletPrefab, transform.position, Quaternion.identity);
@@ -52,7 +52,7 @@ public class BulletSpawner : MonoBehaviour
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
                 CastingSounds.Play();
-                animator.SetTrigger("Shoot");
+                
             }
 
             if (Element == 2)
@@ -63,7 +63,7 @@ public class BulletSpawner : MonoBehaviour
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
                 CastingSounds.Play();
-                animator.SetTrigger("Shoot");
+                //animator.SetTrigger("Cast");
             }
 
             if (Element == 3)
@@ -74,7 +74,7 @@ public class BulletSpawner : MonoBehaviour
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
                 CastingSounds.Play();
-                animator.SetTrigger("Shoot");
+                //animator.SetTrigger("Cast");
             }
 
 
