@@ -23,6 +23,7 @@ public class BulletSpawner : MonoBehaviour
     public float GrassBulletSpeed = 20f;
     public AudioSource CastingSounds;
     public bool AutoPickup;
+    public Animator animator;
 
     public TextMeshProUGUI AmmoTekst;
 
@@ -39,8 +40,10 @@ public class BulletSpawner : MonoBehaviour
     {
         //AmmoTekst.text = "Ammo: " + CurrentAmmo.ToString() + "/" + MaxAmmo.ToString();
         remainingCooldown = remainingCooldown - Time.deltaTime;
+        
         if (Input.GetKeyDown(KeyCode.Mouse0) && remainingCooldown <= 0 && CurrentAmmo > 0)
         {
+            
             if (Element == 1)
             {
                 GameObject bullet = Instantiate(WaterBulletPrefab, transform.position, Quaternion.identity);
@@ -49,6 +52,7 @@ public class BulletSpawner : MonoBehaviour
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
                 CastingSounds.Play();
+                animator.SetTrigger("Shoot");
             }
 
             if (Element == 2)
@@ -59,6 +63,7 @@ public class BulletSpawner : MonoBehaviour
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
                 CastingSounds.Play();
+                animator.SetTrigger("Shoot");
             }
 
             if (Element == 3)
@@ -69,6 +74,7 @@ public class BulletSpawner : MonoBehaviour
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
                 CastingSounds.Play();
+                animator.SetTrigger("Shoot");
             }
 
 
@@ -83,8 +89,9 @@ public class BulletSpawner : MonoBehaviour
         {
             if (RemainingMeleeCooldown > 0)
             {
-                
+                animator.SetTrigger("Punch");
                 MeleeHitbox.SetActive(true);
+                
 
             }
         }
@@ -93,6 +100,7 @@ public class BulletSpawner : MonoBehaviour
         {
             MeleeHitbox.SetActive(false);
             RemainingMeleeCooldown = MeleeUptime;
+            animator.SetTrigger("Exit");
         }
 
 
@@ -128,21 +136,21 @@ public class BulletSpawner : MonoBehaviour
     {
         if (AutoPickup == true)
         {
-            if (other.gameObject.CompareTag("WaterPickup") && CurrentAmmo == 0)
+            if (other.gameObject.CompareTag("WaterPickup"))// && CurrentAmmo == 0)
             {
                 Element = 1;
                 Destroy(other.gameObject);
                 CurrentAmmo = MaxAmmo;
             }
 
-            if (other.gameObject.CompareTag("FirePickup") && CurrentAmmo == 0)
+            if (other.gameObject.CompareTag("FirePickup"))// && CurrentAmmo == 0)
             {
                 Element = 2;
                 Destroy(other.gameObject);
                 CurrentAmmo = MaxAmmo;
             }
 
-            if (other.gameObject.CompareTag("GrassPickup") && CurrentAmmo == 0)
+            if (other.gameObject.CompareTag("GrassPickup")) //&& CurrentAmmo == 0)
             {
                 Element = 3;
                 Destroy(other.gameObject);
