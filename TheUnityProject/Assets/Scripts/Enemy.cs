@@ -34,6 +34,11 @@ public class Enemy : MonoBehaviour
     
     public Animator animator;
     private Rigidbody EnemyRB;
+    private Playermovement PlayerScript;
+    public bool SeenPlayer;
+    public float SightRange = 100f;
+    public float ShootRange = 10f;
+    public bool EnemySight;
     
     
 
@@ -43,19 +48,38 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        agent.SetDestination(player.transform.position);
         remainingCooldown = EnemyCooldownTime;
         EnemyHitSound = GetComponent<AudioSource>();
        
+        
+        PlayerScript = player.GetComponent<Playermovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        remainingCooldown = remainingCooldown - Time.deltaTime;
-        agent.SetDestination(player.transform.position);
+        if (EnemySight == true)
+        {
+            if (Vector3.Distance(transform.position, player.transform.position) <= SightRange)
+            {
+                SeenPlayer = true;
+            }
 
-        if (Vector3.Distance(transform.position, player.transform.position) <= 10 && remainingCooldown <= 0)
+            if (SeenPlayer == true)
+            {
+                agent.SetDestination(player.transform.position);
+            }
+        }
+
+        if (EnemySight == false)
+        {
+            agent.SetDestination(player.transform.position);
+        }
+        
+        remainingCooldown = remainingCooldown - Time.deltaTime;
+        
+
+        if (Vector3.Distance(transform.position, player.transform.position) <= ShootRange && remainingCooldown <= 0)
         {
             Vector3 directiontoplayer = player.transform.position - transform.position;
             directiontoplayer = directiontoplayer.normalized;
@@ -66,9 +90,11 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("EnemyShoot");
             Enemyfiresound.Play();
         }
+        
         if (EnemyHealth <= 0)
         {
            
+            
             
             int HealthRandom = Random.Range(MinHealthRandom, MaxHealthRandom);
             if (EnemyElement==1)
@@ -92,10 +118,12 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(HealthPickup,transform.position,Quaternion.identity);
             }
+            PlayerScript.ScoreAdded();
             
             Enemydiesound.Play();
           
             Destroy(gameObject);
+            
         }
         
     }
@@ -187,6 +215,8 @@ public class Enemy : MonoBehaviour
             }
 
         }
+
+        
     }
     
     

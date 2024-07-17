@@ -22,7 +22,7 @@ public class HealthUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Health = Player.GetComponent<Playermovement>().PlayerHealth;
+        Health = Player.GetComponent<Playermovement>().CurrentHealth;
 
         foreach (GameObject g in HHearts)
         {

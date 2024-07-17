@@ -232,6 +232,9 @@ MonoBehaviour:
   Enemydiesound: {fileID: 5186615491577753284}
   Enemyfiresound: {fileID: 3458671680036010271}
   animator: {fileID: 370007272270148374}
+  SeenPlayer: 0
+  SightRange: 20
+  ShootRange: 10
 --- !u!195 &5085385456738452852
 NavMeshAgent:
   m_ObjectHideFlags: 0

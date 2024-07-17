@@ -13,6 +13,7 @@ public class Playermovement : MonoBehaviour
     public float speed = 10f;
     public float JumpHeight = 10f;
     public int PlayerHealth = 10;
+    public int CurrentHealth;
     public int PlayerLowHealth = 10;
     private int CurrentHealth;
     public GameObject GameOverScreen;
@@ -25,6 +26,11 @@ public class Playermovement : MonoBehaviour
     public soundController SoundController;
     public int CurrentScore;
     public int EnemyScore = 100;
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI FinalScore;
+    public GameObject AmmoBar;
+    public GameObject ScoreTextObject;
+    
     
     public Rigidbody rb;
     // Start is called before the first frame update
@@ -34,8 +40,8 @@ public class Playermovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         CurrentHealth = PlayerHealth;
         audioSource = GetComponent<AudioSource>();
-        //Landing = GetComponent<AudioSource>();
         SoundController.playmusic(1);
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -52,15 +58,22 @@ public class Playermovement : MonoBehaviour
         //velocity
         movement = movement.normalized * speed; 
         movement.y = rb.velocity.y;
-        
 
-        
+        ScoreText.text = "Score:" + CurrentScore.ToString();
+
+        if (CurrentHealth <= 0)
+        {
+            FinalScore.text = "Score:" + CurrentScore.ToString();
+            AmmoBar.SetActive(false);
+            ScoreTextObject.SetActive(false);
+            GameOverScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
         
         if (Input.GetKeyDown(KeyCode.Space) && HasJumped == false)
         {
             movement.y = JumpHeight;
             HasJumped = true;
-           // audioSource.PlayOneShot(Jump);
            SoundController.playaudio(2);
         }
             
@@ -73,8 +86,12 @@ public class Playermovement : MonoBehaviour
         //LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("GameScene");
-            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SceneManager.LoadScene("TitleScreen");
         }
         
         if(CurrentHealth<PlayerLowHealth && CurrentHealth > 0)
@@ -91,10 +108,13 @@ public class Playermovement : MonoBehaviour
         
         if (CurrentHealth <= 0)
         {
+            SceneManager.LoadScene("TitleScreen");
             Time.timeScale = 0;
             GameOverScreen.SetActive(true);
             SoundController.playmusic(0);
         }
+        
+        
         
        
      

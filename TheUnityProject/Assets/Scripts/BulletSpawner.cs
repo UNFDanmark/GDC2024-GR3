@@ -23,15 +23,20 @@ public class BulletSpawner : MonoBehaviour
     public float GrassBulletSpeed = 20f;
     public AudioSource CastingSounds;
     public bool AutoPickup;
+    public Animator animatorLeft;
+    public Animator animatorRight;
 
     public TextMeshProUGUI AmmoTekst;
     public soundController SoundController;
+
+    public GameObject ParticleSpawner;
+
     // Start is called before the first frame update
     void Start()
     {
-       // CastingSounds = GetComponent<AudioSource>();
         remainingCooldown = CooldownTime;
         RemainingMeleeCooldown = MeleeUptime;
+        ParticleSpawner = GameObject.Find("ParticleSpawner");
     }
 
     // Update is called once per frame
@@ -39,8 +44,11 @@ public class BulletSpawner : MonoBehaviour
     {
         //AmmoTekst.text = "Ammo: " + CurrentAmmo.ToString() + "/" + MaxAmmo.ToString();
         remainingCooldown = remainingCooldown - Time.deltaTime;
+        
         if (Input.GetKeyDown(KeyCode.Mouse0) && remainingCooldown <= 0 && CurrentAmmo > 0)
         {
+            animatorRight.SetTrigger("Cast");
+            animatorLeft.SetTrigger("Cast");
             if (Element == 1)
             {
                 GameObject bullet = Instantiate(WaterBulletPrefab, transform.position, Quaternion.identity);
@@ -48,8 +56,8 @@ public class BulletSpawner : MonoBehaviour
                 bulletRB.velocity = transform.forward * WaterBulletSpeed;
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
-                //CastingSounds.Play();
                 SoundController.playaudio(1);
+                ParticleSpawner.GetComponent<ParticlePlayer>().ShootParticle(1);
             }
 
             if (Element == 2)
@@ -59,6 +67,8 @@ public class BulletSpawner : MonoBehaviour
                 bulletRB.velocity = transform.forward * FireBulletSpeed;
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
+
+                ParticleSpawner.GetComponent<ParticlePlayer>().ShootParticle(2);
                // CastingSounds.Play();
                SoundController.playaudio(1);
             }
@@ -70,12 +80,15 @@ public class BulletSpawner : MonoBehaviour
                 bulletRB.velocity = transform.forward * GrassBulletSpeed;
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
-                //CastingSounds.Play();
+                ParticleSpawner.GetComponent<ParticlePlayer>().ShootParticle(3);
                 SoundController.playaudio(1);
             }
+            
 
 
         }
+        animatorLeft.SetTrigger("Exit");
+        animatorRight.SetTrigger("Exit");
 
         if (RemainingMeleeCooldown >= 0)
         {
@@ -86,8 +99,10 @@ public class BulletSpawner : MonoBehaviour
         {
             if (RemainingMeleeCooldown > 0)
             {
-                
+                animatorLeft.SetTrigger("Punch");
+                animatorRight.SetTrigger("Punch");
                 MeleeHitbox.SetActive(true);
+                
 
             }
         }
@@ -96,6 +111,8 @@ public class BulletSpawner : MonoBehaviour
         {
             MeleeHitbox.SetActive(false);
             RemainingMeleeCooldown = MeleeUptime;
+            animatorLeft.SetTrigger("Exit");
+            animatorRight.SetTrigger("Exit");
         }
 
 
@@ -131,21 +148,21 @@ public class BulletSpawner : MonoBehaviour
     {
         if (AutoPickup == true)
         {
-            if (other.gameObject.CompareTag("WaterPickup") && CurrentAmmo == 0)
+            if (other.gameObject.CompareTag("WaterPickup"))// && CurrentAmmo == 0)
             {
                 Element = 1;
                 Destroy(other.gameObject);
                 CurrentAmmo = MaxAmmo;
             }
 
-            if (other.gameObject.CompareTag("FirePickup") && CurrentAmmo == 0)
+            if (other.gameObject.CompareTag("FirePickup"))// && CurrentAmmo == 0)
             {
                 Element = 2;
                 Destroy(other.gameObject);
                 CurrentAmmo = MaxAmmo;
             }
 
-            if (other.gameObject.CompareTag("GrassPickup") && CurrentAmmo == 0)
+            if (other.gameObject.CompareTag("GrassPickup")) //&& CurrentAmmo == 0)
             {
                 Element = 3;
                 Destroy(other.gameObject);
