@@ -76,6 +76,7 @@ public class BulletSpawner : MonoBehaviour
                 CastingSounds.Play();
                 //animator.SetTrigger("Cast");
             }
+            animator.SetTrigger("Exit");
 
 
         }
