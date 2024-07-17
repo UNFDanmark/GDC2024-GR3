@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     public AudioSource EnemyHitSound;
     public Animator animator;
     private Rigidbody EnemyRB;
-    
+    private Playermovement PlayerScript;
     
 
     private GameObject player;
@@ -43,6 +43,8 @@ public class Enemy : MonoBehaviour
         agent.SetDestination(player.transform.position);
         remainingCooldown = EnemyCooldownTime;
         EnemyHitSound = GetComponent<AudioSource>();
+        
+        PlayerScript = player.GetComponent<Playermovement>();
     }
 
     // Update is called once per frame
@@ -61,8 +63,10 @@ public class Enemy : MonoBehaviour
             remainingCooldown = EnemyCooldownTime;
             animator.SetTrigger("EnemyShoot");
         }
+        
         if (EnemyHealth <= 0)
         {
+            
             
             
             int HealthRandom = Random.Range(MinHealthRandom, MaxHealthRandom);
@@ -87,7 +91,9 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(HealthPickup,transform.position,Quaternion.identity);
             }
+            PlayerScript.ScoreAdded();
             Destroy(gameObject);
+            
         }
         
     }
@@ -179,6 +185,8 @@ public class Enemy : MonoBehaviour
             }
 
         }
+
+        
     }
     
     

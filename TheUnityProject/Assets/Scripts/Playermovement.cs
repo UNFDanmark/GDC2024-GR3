@@ -33,7 +33,7 @@ public class Playermovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         CurrentHealth = PlayerHealth;
         audioSource = GetComponent<AudioSource>();
-        //Landing = GetComponent<AudioSource>();
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -71,8 +71,9 @@ public class Playermovement : MonoBehaviour
         //LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
         if (Input.GetKeyDown(KeyCode.R))
         {
+            
             SceneManager.LoadScene("GameScene");
-            Time.timeScale = 1;
+            
         }
         
         if (CurrentHealth <= 0)
