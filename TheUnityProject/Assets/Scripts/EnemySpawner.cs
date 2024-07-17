@@ -12,6 +12,11 @@ public class EnemySpawner : MonoBehaviour
     public float zMax;
     private float leftovercooldown;
     public float EnemyCooldown = 10f;
+
+    public GameObject Player;
+    public float DistanceToPlayer;
+
+    public float SpawnDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +27,12 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         leftovercooldown = leftovercooldown - Time.deltaTime;
-        if (leftovercooldown <= 0)
+        while(DistanceToPlayer >= SpawnDistance)
         {
-            
+            if (leftovercooldown <= 0)
+            {
+                
+            }
             float xSpawn = Random.Range(xMin, xMax);
             float zSpawn = Random.Range(zMin, zMax);
             Vector3 SpawnPoint = new Vector3(xSpawn, 0, zSpawn) + transform.position;
