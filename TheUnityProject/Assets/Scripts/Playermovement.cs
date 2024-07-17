@@ -13,7 +13,7 @@ public class Playermovement : MonoBehaviour
     public float speed = 10f;
     public float JumpHeight = 10f;
     public int PlayerHealth = 10;
-    private int CurrentHealth;
+    public int CurrentHealth;
     public GameObject GameOverScreen;
     public TextMeshProUGUI LivTekst;
     //public int Healing = 1;
