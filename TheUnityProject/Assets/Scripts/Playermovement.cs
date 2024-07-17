@@ -14,6 +14,7 @@ public class Playermovement : MonoBehaviour
     public float JumpHeight = 10f;
     public int PlayerHealth = 10;
     public int CurrentHealth;
+    public int PlayerLowHealth = 10;
     public GameObject GameOverScreen;
     public TextMeshProUGUI LivTekst;
     //public int Healing = 1;
@@ -28,7 +29,7 @@ public class Playermovement : MonoBehaviour
     public TextMeshProUGUI FinalScore;
     public GameObject AmmoBar;
     public GameObject ScoreTextObject;
-    public GameObject FinalScoreObject;
+    
     
     public Rigidbody rb;
     // Start is called before the first frame update
@@ -38,6 +39,7 @@ public class Playermovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         CurrentHealth = PlayerHealth;
         audioSource = GetComponent<AudioSource>();
+        SoundController.playmusic(1);
         Time.timeScale = 1;
     }
 
@@ -58,14 +60,20 @@ public class Playermovement : MonoBehaviour
 
         ScoreText.text = "Score:" + CurrentScore.ToString();
 
-        
+        if (CurrentHealth <= 0)
+        {
+            FinalScore.text = "Score:" + CurrentScore.ToString();
+            AmmoBar.SetActive(false);
+            ScoreTextObject.SetActive(false);
+            GameOverScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
         
         if (Input.GetKeyDown(KeyCode.Space) && HasJumped == false)
         {
             movement.y = JumpHeight;
             HasJumped = true;
-           // audioSource.PlayOneShot(Jump);
-           //SoundController.playaudio(2);
+           SoundController.playaudio(2);
         }
             
       
@@ -82,18 +90,33 @@ public class Playermovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            Cursor.lockState = CursorLockMode.Confined;
             SceneManager.LoadScene("TitleScreen");
         }
         
+        if(CurrentHealth<PlayerLowHealth && CurrentHealth > 0)
+        {
+            SoundController.playheartbeat();
+        }
+
+        
+        if (( rb.velocity.x >0 || rb.velocity.z >0) &&  !HasJumped )
+        {
+            SoundController.playFootsteps();
+        }
+        
+        
         if (CurrentHealth <= 0)
         {
-            FinalScore.text = "Score:" + CurrentScore.ToString();
-            AmmoBar.SetActive(false);
+            SceneManager.LoadScene("TitleScreen");
             Time.timeScale = 0;
-            ScoreTextObject.SetActive(false);
-            //FinalScoreObject.SetActive(true);
             GameOverScreen.SetActive(true);
+            SoundController.playmusic(0);
         }
+        
+        
+        
+       
      
 
     }
@@ -115,6 +138,7 @@ public class Playermovement : MonoBehaviour
     public void BulletDamage()
     {
         CurrentHealth -= 1;
+        SoundController.playaudio(4);
     }
 
     public void ScoreAdded()
@@ -122,5 +146,7 @@ public class Playermovement : MonoBehaviour
         CurrentScore += EnemyScore;
     }
 
+    
+    
 
 }

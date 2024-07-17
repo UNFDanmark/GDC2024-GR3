@@ -44,9 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9efcefb3703dd4e915f2c2e01d57be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefabs: []
+  EnemyPrefabs:
+  - {fileID: 1198165443283909653, guid: 78d75ddb66e79ef49b0aea5d9e26075c, type: 3}
+  - {fileID: 2105206440402833031, guid: dbb6d3fd3b3f91946afdbbf715f846a5, type: 3}
+  - {fileID: 7978263197016250924, guid: c389c2beb1dc2274bb1e54fa594ebfd2, type: 3}
   xMin: 0
   xMax: 0
   zMin: 0
   zMax: 0
   EnemyCooldown: 10
+  Player: {fileID: 0}
+  DistanceToPlayer: 0
+  SpawnDistance: 10

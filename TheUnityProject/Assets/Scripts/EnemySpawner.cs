@@ -21,23 +21,27 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         leftovercooldown = EnemyCooldown;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 playerPos = Player.GetComponent<Transform>().position;
         leftovercooldown = leftovercooldown - Time.deltaTime;
-        while(DistanceToPlayer >= SpawnDistance)
-        {
+        
             if (leftovercooldown <= 0)
             {
+                float xSpawn = Random.Range(xMin, xMax);
+                float zSpawn = Random.Range(zMin, zMax);
+                Vector3 SpawnPoint = new Vector3(xSpawn, 0, zSpawn) + transform.position;
+                if ((playerPos - SpawnPoint).magnitude >= SpawnDistance)
+                {
+                    Instantiate(EnemyPrefabs[Random.Range(0,EnemyPrefabs.Length)], SpawnPoint, Quaternion.identity);
+                    leftovercooldown = EnemyCooldown;
+                }
                 
             }
-            float xSpawn = Random.Range(xMin, xMax);
-            float zSpawn = Random.Range(zMin, zMax);
-            Vector3 SpawnPoint = new Vector3(xSpawn, 0, zSpawn) + transform.position;
-            Instantiate(EnemyPrefabs[Random.Range(0,EnemyPrefabs.Length)], SpawnPoint, Quaternion.identity);
-            leftovercooldown = EnemyCooldown;
-        }
+            
     }
 }

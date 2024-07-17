@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour
     public int Normal = 1;
     public bool HealthPickupGuarentuee = false;
     public AudioSource EnemyHitSound;
+    public AudioSource Enemydiesound;
+    public AudioSource Enemyfiresound;
+    
     public Animator animator;
     private Rigidbody EnemyRB;
     private Playermovement PlayerScript;
@@ -45,9 +48,9 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        //agent.SetDestination(player.transform.position);
         remainingCooldown = EnemyCooldownTime;
         EnemyHitSound = GetComponent<AudioSource>();
+       
         
         PlayerScript = player.GetComponent<Playermovement>();
     }
@@ -85,11 +88,12 @@ public class Enemy : MonoBehaviour
             bulletRB.velocity = directiontoplayer * EnemyBulletSpeed;
             remainingCooldown = EnemyCooldownTime;
             animator.SetTrigger("EnemyShoot");
+            Enemyfiresound.Play();
         }
         
         if (EnemyHealth <= 0)
         {
-            
+           
             
             
             int HealthRandom = Random.Range(MinHealthRandom, MaxHealthRandom);
@@ -115,6 +119,9 @@ public class Enemy : MonoBehaviour
                 Instantiate(HealthPickup,transform.position,Quaternion.identity);
             }
             PlayerScript.ScoreAdded();
+            
+            Enemydiesound.Play();
+          
             Destroy(gameObject);
             
         }

@@ -11,9 +11,11 @@ public class HealthPickup : MonoBehaviour
     public float PickupDespawnTime = 10;
     private float RemainingDespawnTime;
     // Start is called before the first frame update
+    public soundController SoundController;
     void Start()
     {
         HealthPickUpSounds = GetComponent<AudioSource>();
+        
         RemainingDespawnTime = PickupDespawnTime;
     }
 
@@ -36,7 +38,8 @@ public class HealthPickup : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<Playermovement>().HealthPickedUp(Healing);
-            HealthPickUpSounds.Play();
+           // HealthPickUpSounds.Play();
+           AudioSource.PlayClipAtPoint(HealthPickUpSounds.clip, transform.position);
             Destroy(gameObject);
         }
     }
