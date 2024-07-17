@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 3949580018203599371}
   - component: {fileID: 1972866770175504177}
   m_Layer: 6
-  m_Name: FireEnemy
+  m_Name: PlsFixLaugeFireEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
