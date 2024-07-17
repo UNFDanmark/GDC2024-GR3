@@ -24,16 +24,18 @@ public class ParticlePlayer : MonoBehaviour
     {
         if (Element == 1)
         {
+            WaterParticle.GetComponent<ParticleSystem>().Stop();
             WaterParticle.GetComponent<ParticleSystem>().Play();
             print("water");
         }
         if (Element == 2)
         {
-            WaterParticle.GetComponent<ParticleSystem>().Play();
+            FireParticle.GetComponent<ParticleSystem>().Play();
+            
         }
         if (Element == 3)
         {
-            WaterParticle.GetComponent<ParticleSystem>().Play();
+            LeafParticle.GetComponent<ParticleSystem>().Play();
         }
     }
 }
