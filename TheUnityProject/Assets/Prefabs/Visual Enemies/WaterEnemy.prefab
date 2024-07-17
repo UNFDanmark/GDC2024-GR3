@@ -228,6 +228,9 @@ MonoBehaviour:
   HealthPickupGuarentuee: 0
   EnemyHitSound: {fileID: 2518652803306091913}
   animator: {fileID: 370007272270148374}
+  SeenPlayer: 0
+  SightRange: 20
+  ShootRange: 10
 --- !u!195 &5085385456738452852
 NavMeshAgent:
   m_ObjectHideFlags: 0
