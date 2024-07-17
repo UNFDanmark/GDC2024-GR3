@@ -70,7 +70,12 @@ public class Playermovement : MonoBehaviour
             SceneManager.LoadScene("GameScene");
             Time.timeScale = 1;
         }
-            
+        
+        if (CurrentHealth <= 0)
+        {
+            Time.timeScale = 0;
+            GameOverScreen.SetActive(true);
+        }
      
 
     }
@@ -85,25 +90,17 @@ public class Playermovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("EnemyBullets"))
-        {
-            CurrentHealth -= 1;
-            if (CurrentHealth <= 0)
-            {
-                Time.timeScale = 0;
-                GameOverScreen.SetActive(true);
-            }
-            Destroy(other.gameObject);
-            
-            
-            
-        }
         
     }
 
     public void HealthPickedUp(int Healing)
     {
         CurrentHealth += Healing;
+    }
+
+    public void BulletDamage()
+    {
+        CurrentHealth -= 1;
     }
 
 
