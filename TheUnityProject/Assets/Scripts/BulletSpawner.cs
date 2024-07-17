@@ -25,11 +25,11 @@ public class BulletSpawner : MonoBehaviour
     public bool AutoPickup;
 
     public TextMeshProUGUI AmmoTekst;
-
+    public soundController SoundController;
     // Start is called before the first frame update
     void Start()
     {
-        CastingSounds = GetComponent<AudioSource>();
+       // CastingSounds = GetComponent<AudioSource>();
         remainingCooldown = CooldownTime;
         RemainingMeleeCooldown = MeleeUptime;
     }
@@ -48,7 +48,8 @@ public class BulletSpawner : MonoBehaviour
                 bulletRB.velocity = transform.forward * WaterBulletSpeed;
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
-                CastingSounds.Play();
+                //CastingSounds.Play();
+                SoundController.playaudio(1);
             }
 
             if (Element == 2)
@@ -58,7 +59,8 @@ public class BulletSpawner : MonoBehaviour
                 bulletRB.velocity = transform.forward * FireBulletSpeed;
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
-                CastingSounds.Play();
+               // CastingSounds.Play();
+               SoundController.playaudio(1);
             }
 
             if (Element == 3)
@@ -68,7 +70,8 @@ public class BulletSpawner : MonoBehaviour
                 bulletRB.velocity = transform.forward * GrassBulletSpeed;
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
-                CastingSounds.Play();
+                //CastingSounds.Play();
+                SoundController.playaudio(1);
             }
 
 

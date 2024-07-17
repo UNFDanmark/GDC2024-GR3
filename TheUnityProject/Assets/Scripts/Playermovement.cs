@@ -13,6 +13,7 @@ public class Playermovement : MonoBehaviour
     public float speed = 10f;
     public float JumpHeight = 10f;
     public int PlayerHealth = 10;
+    public int PlayerLowHealth = 10;
     private int CurrentHealth;
     public GameObject GameOverScreen;
     public TextMeshProUGUI LivTekst;
@@ -34,6 +35,7 @@ public class Playermovement : MonoBehaviour
         CurrentHealth = PlayerHealth;
         audioSource = GetComponent<AudioSource>();
         //Landing = GetComponent<AudioSource>();
+        SoundController.playmusic(1);
     }
 
     // Update is called once per frame
@@ -59,7 +61,7 @@ public class Playermovement : MonoBehaviour
             movement.y = JumpHeight;
             HasJumped = true;
            // audioSource.PlayOneShot(Jump);
-           //SoundController.playaudio(2);
+           SoundController.playaudio(2);
         }
             
       
@@ -75,11 +77,26 @@ public class Playermovement : MonoBehaviour
             Time.timeScale = 1;
         }
         
+        if(CurrentHealth<PlayerLowHealth && CurrentHealth > 0)
+        {
+            SoundController.playheartbeat();
+        }
+
+        
+        if (( rb.velocity.x >0 || rb.velocity.z >0) &&  !HasJumped )
+        {
+            SoundController.playFootsteps();
+        }
+        
+        
         if (CurrentHealth <= 0)
         {
             Time.timeScale = 0;
             GameOverScreen.SetActive(true);
+            SoundController.playmusic(0);
         }
+        
+       
      
 
     }
@@ -101,6 +118,7 @@ public class Playermovement : MonoBehaviour
     public void BulletDamage()
     {
         CurrentHealth -= 1;
+        SoundController.playaudio(4);
     }
 
     public void ScoreAdded()
@@ -108,5 +126,7 @@ public class Playermovement : MonoBehaviour
         CurrentScore += EnemyScore;
     }
 
+    
+    
 
 }
