@@ -15,7 +15,6 @@ public class Playermovement : MonoBehaviour
     public int PlayerHealth = 10;
     public int CurrentHealth;
     public int PlayerLowHealth = 10;
-    private int CurrentHealth;
     public GameObject GameOverScreen;
     public TextMeshProUGUI LivTekst;
     //public int Healing = 1;
