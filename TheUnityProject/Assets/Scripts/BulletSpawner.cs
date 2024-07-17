@@ -81,6 +81,7 @@ public class BulletSpawner : MonoBehaviour
                 ParticleSpawner.GetComponent<ParticlePlayer>().ShootParticle(3);
                 //animator.SetTrigger("Cast");
             }
+            animator.SetTrigger("Exit");
 
 
         }
