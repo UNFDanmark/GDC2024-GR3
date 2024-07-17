@@ -20,8 +20,20 @@ public class ParticlePlayer : MonoBehaviour
         
     }
 
-    void ShootParticle()
+    public void ShootParticle(int Element)
     {
-        
+        if (Element == 1)
+        {
+            WaterParticle.GetComponent<ParticleSystem>().Play();
+            print("water");
+        }
+        if (Element == 2)
+        {
+            WaterParticle.GetComponent<ParticleSystem>().Play();
+        }
+        if (Element == 3)
+        {
+            WaterParticle.GetComponent<ParticleSystem>().Play();
+        }
     }
 }

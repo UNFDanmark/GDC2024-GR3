@@ -27,12 +27,15 @@ public class BulletSpawner : MonoBehaviour
 
     public TextMeshProUGUI AmmoTekst;
 
+    public GameObject ParticleSpawner;
+
     // Start is called before the first frame update
     void Start()
     {
         CastingSounds = GetComponent<AudioSource>();
         remainingCooldown = CooldownTime;
         RemainingMeleeCooldown = MeleeUptime;
+        ParticleSpawner = GameObject.Find("ParticleSpawner");
     }
 
     // Update is called once per frame
@@ -52,7 +55,7 @@ public class BulletSpawner : MonoBehaviour
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
                 CastingSounds.Play();
-                
+                ParticleSpawner.GetComponent<ParticlePlayer>().ShootParticle(1);
             }
 
             if (Element == 2)
@@ -63,6 +66,7 @@ public class BulletSpawner : MonoBehaviour
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
                 CastingSounds.Play();
+                ParticleSpawner.GetComponent<ParticlePlayer>().ShootParticle(2);
                 //animator.SetTrigger("Cast");
             }
 
@@ -74,6 +78,7 @@ public class BulletSpawner : MonoBehaviour
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
                 CastingSounds.Play();
+                ParticleSpawner.GetComponent<ParticlePlayer>().ShootParticle(3);
                 //animator.SetTrigger("Cast");
             }
             animator.SetTrigger("Exit");
