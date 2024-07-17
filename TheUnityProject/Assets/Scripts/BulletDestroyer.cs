@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,5 +23,15 @@ public class BulletDestroyer : MonoBehaviour
             Destroy(gameObject);
             remainingBulletCD = BulletDestroyCD;
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
+
+        
     }
 }
