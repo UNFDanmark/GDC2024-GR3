@@ -239,7 +239,7 @@ MonoBehaviour:
   HealthPickup: {fileID: 2956525019395356154, guid: 8c0720ee949ed854f9c065d8f981d742,
     type: 3}
   MinHealthRandom: 1
-  MaxHealthRandom: 2
+  MaxHealthRandom: 4
   EnemyCooldownTime: 2
   EnemyElement: 2
   EnemyBulletSpeed: 20
@@ -252,6 +252,7 @@ MonoBehaviour:
   SeenPlayer: 0
   SightRange: 20
   ShootRange: 10
+  EnemySight: 1
 --- !u!82 &1972866770175504177
 AudioSource:
   m_ObjectHideFlags: 0

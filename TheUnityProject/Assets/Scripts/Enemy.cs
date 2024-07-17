@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public bool SeenPlayer;
     public float SightRange = 100f;
     public float ShootRange = 10f;
+    public bool EnemySight;
     
     
 
@@ -54,15 +55,24 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) <= SightRange)
+        if (EnemySight == true)
         {
-            SeenPlayer = true;
+            if (Vector3.Distance(transform.position, player.transform.position) <= SightRange)
+            {
+                SeenPlayer = true;
+            }
+
+            if (SeenPlayer == true)
+            {
+                agent.SetDestination(player.transform.position);
+            }
         }
 
-        if (SeenPlayer == true)
+        if (EnemySight == false)
         {
             agent.SetDestination(player.transform.position);
         }
+        
         remainingCooldown = remainingCooldown - Time.deltaTime;
         
 

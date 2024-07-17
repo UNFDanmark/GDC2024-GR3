@@ -188,6 +188,7 @@ MonoBehaviour:
   AutoPickup: 1
   animator: {fileID: 8741848591711240092}
   AmmoTekst: {fileID: 0}
+  ParticleSpawner: {fileID: 0}
 --- !u!82 &7509576108752098456
 AudioSource:
   m_ObjectHideFlags: 0
@@ -543,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  JumpHeight: 10
+  JumpHeight: 18
   PlayerHealth: 10
   CurrentHealth: 0
   GameOverScreen: {fileID: 0}
