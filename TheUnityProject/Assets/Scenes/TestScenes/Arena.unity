@@ -30656,6 +30656,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 2434048079260547259}
+    - target: {fileID: 4156085072054718267, guid: cb28e8dfff4215b42b63ed0c94b70b40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50386,6 +50391,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5843509931260256715, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843509931260256715, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a514c0bca3dfc9442b1befa17fa7346c, type: 3}
+    - target: {fileID: 5843509931260256715, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6075976012914723531, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: SoundController
+      value: 
+      objectReference: {fileID: 2434048079260547270}
     - target: {fileID: 6927730583278132019, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
         type: 3}
       propertyPath: AmmoBar
@@ -50408,9 +50433,34 @@ PrefabInstance:
       objectReference: {fileID: 1479162952}
     - target: {fileID: 6927730583278132019, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
         type: 3}
+      propertyPath: PlayerLowHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927730583278132019, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
       propertyPath: ScoreTextObject
       value: 
       objectReference: {fileID: 1490054066}
+    - target: {fileID: 7446008391414964064, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: AudioSourcesMusic
+      value: 
+      objectReference: {fileID: 2434048079260547269}
+    - target: {fileID: 7446008391414964064, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: AudioClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446008391414964064, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: AudioClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: b3825bd72a5867948bcc7790f444e49b, type: 3}
+    - target: {fileID: 7446008391414964064, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: AudioSources.Array.data[0]
+      value: 
+      objectReference: {fileID: 2434048079260547268}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50422,6 +50472,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1132993374025022889}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &2434048079260547268 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3885423245923394777, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1132993374025022889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2434048079260547269 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5843509931260256715, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1132993374025022889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2434048079260547270 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7446008391414964064, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1132993374025022889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2434048079260547259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a948d1d9031b245b13fad15aa0a09c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -93,9 +93,6 @@ public class Enemy : MonoBehaviour
         
         if (EnemyHealth <= 0)
         {
-           
-            
-            
             int HealthRandom = Random.Range(MinHealthRandom, MaxHealthRandom);
             if (EnemyElement==1)
             {
