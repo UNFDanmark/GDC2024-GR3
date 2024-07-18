@@ -9274,6 +9274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6075976012914723531, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
         type: 3}
+      propertyPath: Element
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6075976012914723531, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
       propertyPath: ParticleSpawner
       value: 
       objectReference: {fileID: 1516485306}
