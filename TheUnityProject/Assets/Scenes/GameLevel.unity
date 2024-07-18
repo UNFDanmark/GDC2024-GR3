@@ -9418,16 +9418,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2249135956466033595, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: Damage
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2312113508238908230, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546616830505233637, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: mouseSensitivity
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 6075976012914723531, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
         type: 3}
       propertyPath: Canvas
       value: 
       objectReference: {fileID: 1935325711}
+    - target: {fileID: 6075976012914723531, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
+        type: 3}
+      propertyPath: Element
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6075976012914723531, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
         type: 3}
       propertyPath: ParticleSpawner
