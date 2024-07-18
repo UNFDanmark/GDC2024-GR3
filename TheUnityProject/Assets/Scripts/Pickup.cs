@@ -10,6 +10,8 @@ public class Pickup : MonoBehaviour
     private float RemainingDespawnTime;
     public soundController SoundController;
 
+    public bool IsWinItem;
+
     public GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,15 @@ public class Pickup : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
            AudioSource.PlayClipAtPoint(PickupSound.clip, transform.position);
+           if (IsWinItem)
+           {
+               Win();
+           }
         }
+    }
+
+    public void Win()
+    {
+        
     }
 }
