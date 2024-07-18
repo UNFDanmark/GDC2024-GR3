@@ -108,7 +108,7 @@ MonoBehaviour:
   JumpHeight: 18
   PlayerHealth: 10
   CurrentHealth: 0
-  PlayerLowHealth: 10
+  PlayerLowHealth: 3
   GameOverScreen: {fileID: 0}
   LivTekst: {fileID: 0}
   HasJumped: 0
@@ -258,6 +258,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fcb8b3b3d5a658d4186e5317c2257841, type: 3}
   - {fileID: 8300000, guid: 3dd91f48221bf0b4e9228df22b92dabc, type: 3}
   - {fileID: 8300000, guid: 5f25932ef862d9045bb67ab94db2279d, type: 3}
+  - {fileID: 8300000, guid: b3825bd72a5867948bcc7790f444e49b, type: 3}
   AudioSourcesMusic: {fileID: 5843509931260256715}
   musicClips:
   - {fileID: 8300000, guid: d16d953849d26444cb33cc6351506f66, type: 3}
@@ -281,11 +282,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: a514c0bca3dfc9442b1befa17fa7346c, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -844,7 +845,7 @@ MonoBehaviour:
   animatorLeft: {fileID: 8196508530617568978}
   animatorRight: {fileID: 5384915898166239175}
   AmmoTekst: {fileID: 0}
-  SoundController: {fileID: 0}
+  SoundController: {fileID: 7446008391414964064}
   ParticleSpawner: {fileID: 0}
 --- !u!82 &7583569319782304091
 AudioSource:

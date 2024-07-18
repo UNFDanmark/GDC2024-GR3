@@ -16,11 +16,7 @@ public class Playermovement : MonoBehaviour
     public int CurrentHealth;
     public int PlayerLowHealth = 10;
     public GameObject GameOverScreen;
-    public TextMeshProUGUI LivTekst;
-    //public int Healing = 1;
-    
     public bool HasJumped;
-    
     public soundController SoundController;
     public int CurrentScore;
     public int EnemyScore = 100;
@@ -75,14 +71,9 @@ public class Playermovement : MonoBehaviour
             HasJumped = true;
             SoundController.playaudio(2);
         }
-            
-      
-        
-        
 
         rb.velocity = movement;
         
-        //LivTekst.text = "Liv: " + CurrentHealth.ToString() + "/" + PlayerHealth.ToString();
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -104,28 +95,12 @@ public class Playermovement : MonoBehaviour
         {
             SoundController.playFootsteps();
         }
-        
-        
-        // if (CurrentHealth <= 0)
-        // {
-        //     SceneManager.LoadScene("TitleScreen");
-        //     Time.timeScale = 0;
-        //     GameOverScreen.SetActive(true);
-        //     SoundController.playmusic(0);
-        // }
-        
-        
-        
-       
-     
-
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             HasJumped = false;
-            //audioSource.PlayOneShot(Landing);
         }
     }   
     
