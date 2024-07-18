@@ -9306,7 +9306,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ScoreTextObject
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766685542}
     - target: {fileID: 6927730583278132019, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
         type: 3}
       propertyPath: SoundController
@@ -36748,7 +36748,7 @@ GameObject:
   - component: {fileID: 987350835}
   m_Layer: 0
   m_Name: Cube (18)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38642,7 +38642,7 @@ GameObject:
   - component: {fileID: 1026301177}
   m_Layer: 0
   m_Name: Cube (19)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40467,6 +40467,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324677874}
     m_Modifications:
+    - target: {fileID: 5654991813646346038, guid: 11b4b06bc4598ab41be137d396acd510,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8110198461689300440, guid: 11b4b06bc4598ab41be137d396acd510,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45147,7 +45152,7 @@ GameObject:
   - component: {fileID: 1220964728}
   m_Layer: 0
   m_Name: Cube (20)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45159,7 +45164,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220964727}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 03a700f1d7e02eb49af6c1cdec10b543, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -51819,6 +51824,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324677874}
     m_Modifications:
+    - target: {fileID: 5654991813646346038, guid: 11b4b06bc4598ab41be137d396acd510,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8110198461689300440, guid: 11b4b06bc4598ab41be137d396acd510,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53176,6 +53186,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324677874}
     m_Modifications:
+    - target: {fileID: 5654991813646346038, guid: 11b4b06bc4598ab41be137d396acd510,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8110198461689300440, guid: 11b4b06bc4598ab41be137d396acd510,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66367,6 +66382,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1765707314}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1766685542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4055797305474664434, guid: cb28e8dfff4215b42b63ed0c94b70b40,
+    type: 3}
+  m_PrefabInstance: {fileID: 1018791163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1767485461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67448,6 +67469,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 148667742046250758, guid: 1f8ab7ae5dff7db4888cf897b177a579,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 148667742046250758, guid: 1f8ab7ae5dff7db4888cf897b177a579,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.79
+      objectReference: {fileID: 0}
     - target: {fileID: 7074418817455495591, guid: 1f8ab7ae5dff7db4888cf897b177a579,
         type: 3}
       propertyPath: m_Name
@@ -67463,6 +67494,11 @@ PrefabInstance:
       propertyPath: IsWinItem
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7394670668546353371, guid: 1f8ab7ae5dff7db4888cf897b177a579,
+        type: 3}
+      propertyPath: PickupDespawnTime
+      value: 1e+17
+      objectReference: {fileID: 0}
     - target: {fileID: 7748974536752536819, guid: 1f8ab7ae5dff7db4888cf897b177a579,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67471,12 +67507,12 @@ PrefabInstance:
     - target: {fileID: 7748974536752536819, guid: 1f8ab7ae5dff7db4888cf897b177a579,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.25
+      value: 8.873
       objectReference: {fileID: 0}
     - target: {fileID: 7748974536752536819, guid: 1f8ab7ae5dff7db4888cf897b177a579,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -75.63
+      value: -77.188
       objectReference: {fileID: 0}
     - target: {fileID: 7748974536752536819, guid: 1f8ab7ae5dff7db4888cf897b177a579,
         type: 3}
@@ -74601,7 +74637,7 @@ GameObject:
   - component: {fileID: 2011648270}
   m_Layer: 0
   m_Name: Cube (23)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74613,7 +74649,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011648269}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 03a700f1d7e02eb49af6c1cdec10b543, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
