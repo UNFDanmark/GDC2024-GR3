@@ -121,8 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthPickUpSounds: {fileID: 7688612644959436400}
-  Healing: 1
+  Healing: 2
   PickupDespawnTime: 10
+  SoundController: {fileID: 0}
 --- !u!82 &7688612644959436400
 AudioSource:
   m_ObjectHideFlags: 0
