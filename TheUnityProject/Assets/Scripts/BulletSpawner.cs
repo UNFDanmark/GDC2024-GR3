@@ -56,8 +56,11 @@ public class BulletSpawner : MonoBehaviour
                 bulletRB.velocity = transform.forward * WaterBulletSpeed;
                 remainingCooldown = CooldownTime;
                 CurrentAmmo -= 1;
-                SoundController.playaudio(1);
+                
                 ParticleSpawner.GetComponent<ParticlePlayer>().ShootParticle(1);
+		ParticleSpawner.GetComponent<ParticlePlayer>().ShootParticle(1);
+		SoundController.playaudio(1);
+		
             }
 
             if (Element == 2)

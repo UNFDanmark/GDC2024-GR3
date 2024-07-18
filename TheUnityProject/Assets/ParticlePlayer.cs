@@ -22,9 +22,9 @@ public class ParticlePlayer : MonoBehaviour
 
     public void ShootParticle(int Element)
     {
+	print("Particle");
         if (Element == 1)
         {
-            WaterParticle.GetComponent<ParticleSystem>().Stop();
             WaterParticle.GetComponent<ParticleSystem>().Play();
             print("water");
         }
