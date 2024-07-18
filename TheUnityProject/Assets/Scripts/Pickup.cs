@@ -39,9 +39,7 @@ public class Pickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-           // PickupSound.Play();
            AudioSource.PlayClipAtPoint(PickupSound.clip, transform.position);
-           //SoundController.playaudio(3);
         }
     }
 }
