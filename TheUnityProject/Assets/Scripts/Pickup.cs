@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pickup : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Pickup : MonoBehaviour
     public soundController SoundController;
 
     public bool IsWinItem;
+    
 
     public GameObject player;
     // Start is called before the first frame update
@@ -51,6 +53,6 @@ public class Pickup : MonoBehaviour
 
     public void Win()
     {
-        
+        SceneManager.LoadScene("TitleScreen");
     }
 }
