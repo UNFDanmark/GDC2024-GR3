@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ArenaButton : MonoBehaviour
 {
-    public void StartArena()
+    public void StartArena()    
     {
         SceneManager.LoadScene("Arena");
     }
