@@ -53,6 +53,7 @@ public class Pickup : MonoBehaviour
 
     public void Win()
     {
+        GameObject.Find("Canvas").GetComponent<HasWonCondition>().ChangedWinState();
         SceneManager.LoadScene("TitleScreen");
     }
 }
