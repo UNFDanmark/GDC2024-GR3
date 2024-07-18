@@ -162,9 +162,9 @@ MonoBehaviour:
   EnemyCooldownTime: 2
   EnemyElement: 2
   EnemyBulletSpeed: 20
-  EnemyHealth: 5
-  SuperEffective: 4
-  Normal: 1
+  EnemyHealth: 10
+  SuperEffective: 5
+  Normal: 3
   HealthPickupGuarentuee: 0
   EnemyHitSound: {fileID: 8594991428066222665}
   Enemydiesound: {fileID: 882570958052096723}

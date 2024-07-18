@@ -222,12 +222,12 @@ MonoBehaviour:
     type: 3}
   MinHealthRandom: 1
   MaxHealthRandom: 4
-  EnemyCooldownTime: 2
+  EnemyCooldownTime: 3
   EnemyElement: 1
   EnemyBulletSpeed: 20
-  EnemyHealth: 5
-  SuperEffective: 4
-  Normal: 1
+  EnemyHealth: 10
+  SuperEffective: 5
+  Normal: 3
   HealthPickupGuarentuee: 0
   EnemyHitSound: {fileID: 2337148018064942476}
   Enemydiesound: {fileID: 1323924742806661049}

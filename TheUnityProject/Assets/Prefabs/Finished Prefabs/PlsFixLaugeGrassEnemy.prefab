@@ -247,8 +247,8 @@ MonoBehaviour:
   EnemyElement: 3
   EnemyBulletSpeed: 20
   EnemyHealth: 3
-  SuperEffective: 3
-  Normal: 1
+  SuperEffective: 5
+  Normal: 3
   HealthPickupGuarentuee: 0
   EnemyHitSound: {fileID: 5483936291348337320}
   Enemydiesound: {fileID: 8937746968438030641}
