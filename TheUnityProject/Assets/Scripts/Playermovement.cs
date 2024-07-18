@@ -16,7 +16,6 @@ public class Playermovement : MonoBehaviour
     public int CurrentHealth;
     public int PlayerLowHealth = 10;
     public GameObject GameOverScreen;
-    public TextMeshProUGUI LivTekst;
     //public int Healing = 1;
     
     public bool HasJumped;
