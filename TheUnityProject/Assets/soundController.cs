@@ -63,6 +63,7 @@ public class soundController : MonoBehaviour
         
         if (!AudioSourcesHeartBeat.isPlaying)
         {
+            AudioSourcesHeartBeat.clip = heartbeat;
             AudioSourcesHeartBeat.Play();
         }
         

@@ -18,10 +18,9 @@ public class Playermovement : MonoBehaviour
     public GameObject GameOverScreen;
     public TextMeshProUGUI LivTekst;
     //public int Healing = 1;
-    AudioSource audioSource;
+    
     public bool HasJumped;
-    public AudioClip Landing;
-    public AudioClip Jump;
+    
     public soundController SoundController;
     public int CurrentScore;
     public int EnemyScore = 100;
@@ -38,7 +37,7 @@ public class Playermovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         CurrentHealth = PlayerHealth;
-        audioSource = GetComponent<AudioSource>();
+        
         SoundController.playmusic(1);
         Time.timeScale = 1;
     }
@@ -66,6 +65,7 @@ public class Playermovement : MonoBehaviour
             AmmoBar.SetActive(false);
             ScoreTextObject.SetActive(false);
             GameOverScreen.SetActive(true);
+            SoundController.playmusic(0);
             Time.timeScale = 0;
         }
         
@@ -73,7 +73,7 @@ public class Playermovement : MonoBehaviour
         {
             movement.y = JumpHeight;
             HasJumped = true;
-           SoundController.playaudio(2);
+            SoundController.playaudio(2);
         }
             
       
@@ -106,13 +106,13 @@ public class Playermovement : MonoBehaviour
         }
         
         
-        if (CurrentHealth <= 0)
-        {
-            SceneManager.LoadScene("TitleScreen");
-            Time.timeScale = 0;
-            GameOverScreen.SetActive(true);
-            SoundController.playmusic(0);
-        }
+        // if (CurrentHealth <= 0)
+        // {
+        //     SceneManager.LoadScene("TitleScreen");
+        //     Time.timeScale = 0;
+        //     GameOverScreen.SetActive(true);
+        //     SoundController.playmusic(0);
+        // }
         
         
         
