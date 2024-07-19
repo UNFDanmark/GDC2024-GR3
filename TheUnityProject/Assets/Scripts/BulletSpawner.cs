@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletSpawner : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class BulletSpawner : MonoBehaviour
     public soundController SoundController;
 
     public GameObject ParticleSpawner;
+    public GameObject Canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -171,6 +173,10 @@ public class BulletSpawner : MonoBehaviour
                 Destroy(other.gameObject);
                 CurrentAmmo = MaxAmmo;
             }
+            
+            
+            
+            
         }
     }
 }

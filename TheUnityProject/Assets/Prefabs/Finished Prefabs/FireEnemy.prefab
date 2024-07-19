@@ -158,13 +158,13 @@ MonoBehaviour:
   HealthPickup: {fileID: 2956525019395356154, guid: 8c0720ee949ed854f9c065d8f981d742,
     type: 3}
   MinHealthRandom: 1
-  MaxHealthRandom: 4
-  EnemyCooldownTime: 2
+  MaxHealthRandom: 8
+  EnemyCooldownTime: 3
   EnemyElement: 2
   EnemyBulletSpeed: 20
-  EnemyHealth: 5
-  SuperEffective: 4
-  Normal: 1
+  EnemyHealth: 10
+  SuperEffective: 5
+  Normal: 3
   HealthPickupGuarentuee: 0
   EnemyHitSound: {fileID: 8594991428066222665}
   Enemydiesound: {fileID: 882570958052096723}

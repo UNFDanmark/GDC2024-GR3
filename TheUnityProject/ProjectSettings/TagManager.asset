@@ -17,6 +17,7 @@ TagManager:
   - GrassBullet
   - Melee
   - Ground
+  - WinPickup
   layers:
   - Default
   - TransparentFX

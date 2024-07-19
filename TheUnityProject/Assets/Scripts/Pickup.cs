@@ -18,10 +18,11 @@ public class Pickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+ 
         PickupSound = GetComponent<AudioSource>();
         
         RemainingDespawnTime = PickupDespawnTime;
-        player = GameObject.Find("player");
+        player = GameObject.Find("Player");
         
     }
 
@@ -41,18 +42,24 @@ public class Pickup : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.CompareTag("Player"))
         {
-           AudioSource.PlayClipAtPoint(PickupSound.clip, transform.position);
-           if (IsWinItem)
-           {
-               Win();
-           }
+            if (!IsWinItem)
+            {
+                AudioSource.PlayClipAtPoint(PickupSound.clip, transform.position);
+            }
+            else
+            {
+                
+                Win();
+            }
         }
     }
 
     public void Win()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         GameObject.Find("Canvas").GetComponent<HasWonCondition>().ChangedWinState();
         SceneManager.LoadScene("TitleScreen");
     }
