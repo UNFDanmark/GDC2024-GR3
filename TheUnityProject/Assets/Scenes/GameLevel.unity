@@ -9431,7 +9431,7 @@ PrefabInstance:
     - target: {fileID: 5546616830505233637, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
         type: 3}
       propertyPath: mouseSensitivity
-      value: 750
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6075976012914723531, guid: 61daded28d8e97c44b9ab3aa27a4ffb6,
         type: 3}
